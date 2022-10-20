@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 0e733c77b16ed479da6e4fd00589732f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - player: {instanceID: 0}
+  - photosphereBullet: {fileID: 6645224159872967026, guid: d7afd7a215eb643ba972f1e7c862b88c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
