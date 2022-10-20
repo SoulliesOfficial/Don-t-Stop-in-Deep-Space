@@ -9,7 +9,7 @@ using System.Linq;
 public class SpaceRoom : MonoBehaviour
 {
     public GameObject roomBorderTrack;
-    public List<BoxCollider2D> roomBorderCollider;
+    public PolygonColliderGenerator roomBorderCollider;
     public List<Vector2> colliderPoints;
 
     public Vector2 roomCenter;
@@ -51,13 +51,14 @@ public class SpaceRoom : MonoBehaviour
                 rbt.Close();
             }
             rbt.RebuildImmediate();
+            roomBorderCollider.spline = rbt;
         }
-        roomBorderCollider.points = colliderPoints.Distinct().ToArray();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         collision.GetComponent<Player>().nowUsingMovementModule.GetComponent<AccelerationEngine>().speed = 0;
+        collision.GetComponent<Player>().extraSpeed = -collision.GetComponent<Player>().instantSpeed-1;
     }
 }
 

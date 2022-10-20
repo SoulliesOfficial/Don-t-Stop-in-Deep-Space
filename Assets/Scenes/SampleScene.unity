@@ -257,7 +257,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5230600787204572276, guid: 7faaf287a171a4d90b8320e9ee3447b1, type: 3}
   m_PrefabInstance: {fileID: 1229619756020114051}
   m_PrefabAsset: {fileID: 0}
---- !u!60 &272303944
+--- !u!114 &272303944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272303941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c6eacf526b59e41ad6bb0134d023f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateMethod: 0
+  _spline: {fileID: 0}
+  _autoUpdate: 1
+  _rotationModifier:
+    blend: 1
+    useClippedPercent: 0
+    keys: []
+  _offsetModifier:
+    blend: 1
+    useClippedPercent: 0
+    keys: []
+  _colorModifier:
+    blend: 1
+    useClippedPercent: 0
+    keys: []
+  _sizeModifier:
+    blend: 1
+    useClippedPercent: 0
+    keys: []
+  _clipFromSample:
+    position: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    forward: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    size: 0
+    percent: 0
+  _clipToSample:
+    position: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    forward: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    size: 0
+    percent: 0
+  _loopSamples: 0
+  _clipFrom: 0
+  _clipTo: 1
+  animClipFrom: 0
+  animClipTo: 1
+  multithreaded: 0
+  buildOnAwake: 1
+  buildOnEnable: 0
+  _type: 0
+  _size: 1
+  _offset: 0
+  polygonCollider: {fileID: 272303945}
+  vertices: []
+  updateRate: 0.1
+--- !u!60 &272303945
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,7 +341,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - []
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &360755004
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +439,7 @@ PrefabInstance:
     - target: {fileID: 6502635479410429126, guid: 7faaf287a171a4d90b8320e9ee3447b1, type: 3}
       propertyPath: roomBorderCollider
       value: 
-      objectReference: {fileID: 450323932}
+      objectReference: {fileID: 450323935}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7faaf287a171a4d90b8320e9ee3447b1, type: 3}
 --- !u!1 &450323931 stripped
@@ -384,7 +447,82 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4459558857637560612, guid: 7faaf287a171a4d90b8320e9ee3447b1, type: 3}
   m_PrefabInstance: {fileID: 450323930}
   m_PrefabAsset: {fileID: 0}
---- !u!60 &450323932
+--- !u!114 &450323933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6502635479410429126, guid: 7faaf287a171a4d90b8320e9ee3447b1, type: 3}
+  m_PrefabInstance: {fileID: 450323930}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450323931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf297a0d3d9ed4f588c6534b226629af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &450323934 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5230600787204572276, guid: 7faaf287a171a4d90b8320e9ee3447b1, type: 3}
+  m_PrefabInstance: {fileID: 450323930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &450323935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450323931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c6eacf526b59e41ad6bb0134d023f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateMethod: 0
+  _spline: {fileID: 0}
+  _autoUpdate: 1
+  _rotationModifier:
+    blend: 1
+    useClippedPercent: 0
+    keys: []
+  _offsetModifier:
+    blend: 1
+    useClippedPercent: 0
+    keys: []
+  _colorModifier:
+    blend: 1
+    useClippedPercent: 0
+    keys: []
+  _sizeModifier:
+    blend: 1
+    useClippedPercent: 0
+    keys: []
+  _clipFromSample:
+    position: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    forward: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    size: 0
+    percent: 0
+  _clipToSample:
+    position: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    forward: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    size: 0
+    percent: 0
+  _loopSamples: 0
+  _clipFrom: 0
+  _clipTo: 1
+  animClipFrom: 0
+  animClipTo: 1
+  multithreaded: 0
+  buildOnAwake: 1
+  buildOnEnable: 0
+  _type: 0
+  _size: 1
+  _offset: 0
+  polygonCollider: {fileID: 450323936}
+  vertices: []
+  updateRate: 0.1
+--- !u!60 &450323936
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -409,23 +547,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - []
---- !u!114 &450323933 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6502635479410429126, guid: 7faaf287a171a4d90b8320e9ee3447b1, type: 3}
-  m_PrefabInstance: {fileID: 450323930}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450323931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf297a0d3d9ed4f588c6534b226629af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &450323934 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5230600787204572276, guid: 7faaf287a171a4d90b8320e9ee3447b1, type: 3}
-  m_PrefabInstance: {fileID: 450323930}
-  m_PrefabAsset: {fileID: 0}
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
