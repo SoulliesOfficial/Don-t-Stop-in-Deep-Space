@@ -13,16 +13,17 @@ public class PhotosphereBullet : Bullet
     {
         this.direction = direction;
         this.speed = speed;
+        gameObject.GetComponent<Rigidbody2D>().velocity = (direction * GameManager.playerInputManager.player.instantSpeed)+ (GameManager.playerInputManager.player.displacement.normalized * GameManager.playerInputManager.player.instantSpeed);
         Observable.Timer(System.TimeSpan.FromSeconds(5)).First().Subscribe(_ => { LeanPool.Despawn(gameObject); }).AddTo(this);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Move();
     }
 
     public void Move()
     {
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        gameObject.GetComponent<Rigidbody2D>().AddForce(direction * speed);
     }
 }

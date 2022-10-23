@@ -15,39 +15,40 @@ public class AccelerationEngine : PlayerMovementModule
 
     private void Start()
     {
-        speed = 0;
+        speed = 10;
         maxSpeed = 20;
         acceleartion = 5;
         player = GameManager.playerInputManager.player;
     }
 
+    private void FixedUpdate()
+    {
+        if (player.GetComponent<Rigidbody2D>().velocity.magnitude > maxSpeed)
+        {
+            player.GetComponent<Rigidbody2D>().velocity *= maxSpeed / player.GetComponent<Rigidbody2D>().velocity.magnitude;
+        }
+    }
+
     public override void Move()
     {
-        playerPosition = GameManager.playerInputManager.player.transform.position;
-        targetPosition = GameManager.playerInputManager.mousePosition;
-
-
-        centerPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-
-        if (player.isInMovingOrder)
+        if (player != null)
         {
-            rawDirection = targetPosition - centerPosition;
-            direction = rawDirection.normalized;
-            player.transform.up = Vector3.Lerp(player.transform.up, direction, 0.025f);
+            playerPosition = GameManager.playerInputManager.player.transform.position;
+            targetPosition = GameManager.playerInputManager.mousePosition;
 
-            speed += acceleartion * Time.deltaTime;
+
+            centerPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+
+            if (player.isInMovingOrder)
+            {
+                rawDirection = targetPosition - centerPosition;
+                direction = rawDirection.normalized;
+                player.transform.up = Vector3.Lerp(player.transform.up, direction, 0.25f);
+                player.GetComponent<Rigidbody2D>().AddForce(player.transform.up * speed);
+            }
+
+            GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerMovement = player.GetComponent<Rigidbody2D>().velocity.magnitude;
         }
-        else
-        {
-            speed -= acceleartion * Time.deltaTime;
-        }
-
-        speed = Mathf.Max(0, speed);
-        speed = Mathf.Min(speed, maxSpeed);
-
-        player.transform.Translate(Vector3.up * speed * Time.deltaTime);
-
-        GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerMovement = this.speed;
     }
 
     public override void Stop()

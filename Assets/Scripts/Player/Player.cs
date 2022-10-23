@@ -18,9 +18,12 @@ public class Player : MonoBehaviour
     public bool isInMovingOrder, isShooting;
 
     public GameObject weaponModule, movementModule, functionalModule, passiveModule;
+    public Vector2 playerPosition;
 
-    private Vector3 lastPos, nowPos;
+    private Vector2 lastPos, nowPos;
+    public Vector2 displacement;
     public float instantSpeed, extraSpeed, extraAccleration;
+    public Vector2 extraDirection;
 
     void Start()
     {
@@ -36,34 +39,42 @@ public class Player : MonoBehaviour
         this.nowUsingWeaponModule = weaponModuleList[0];
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         if (nowUsingMovementModule != null)
         {
             nowUsingMovementModule.Move();
         }
 
+
+
+        playerPosition = transform.position;
+
+        nowPos = transform.position;
+        displacement = nowPos - lastPos;
+        instantSpeed = displacement.magnitude / Time.fixedDeltaTime;
+        lastPos = nowPos;
+    }
+
+    void Update()
+    {
+
         if (nowUsingWeaponModule != null)
         {
             nowUsingWeaponModule.Shoot();
         }
 
-
-        nowPos = transform.position;
-        instantSpeed = (nowPos - lastPos).magnitude/Time.deltaTime;
-        lastPos = nowPos;
-
-        if (extraSpeed > 0)
-        {
-            extraSpeed -= extraAccleration * Time.deltaTime;
-            extraSpeed = Mathf.Max(0, extraSpeed);
-        }
-        else if(extraSpeed<0)
-        {
-            extraSpeed += extraAccleration * Time.deltaTime;
-            extraSpeed = Mathf.Min(0, extraSpeed);
-        }
-        transform.Translate(Vector3.up * extraSpeed * Time.deltaTime);
+        //if (extraSpeed > 0)
+        //{
+        //    extraSpeed -= extraAccleration * Time.deltaTime;
+        //    extraSpeed = Mathf.Max(0, extraSpeed);
+        //}
+        //else if(extraSpeed<0)
+        //{
+        //    extraSpeed += extraAccleration * Time.deltaTime;
+        //    extraSpeed = Mathf.Min(0, extraSpeed);
+        //}
+        //transform.Translate(extraDirection * extraSpeed * Time.deltaTime);
     }
 
     void InstallModule(string moduleType, string moduleName)
@@ -94,4 +105,10 @@ public class Player : MonoBehaviour
         mod.transform.localPosition = Vector3.zero;
         mod.transform.localEulerAngles = Vector3.zero;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+    }
+
 }

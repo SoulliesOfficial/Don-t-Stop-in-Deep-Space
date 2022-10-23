@@ -15,7 +15,7 @@ public class CameraTrack : MonoBehaviour
     //设置一个缓动速度插值
     public float smooth;
 
-    void Update()
+    void FixedUpdate()
     {
 
 
