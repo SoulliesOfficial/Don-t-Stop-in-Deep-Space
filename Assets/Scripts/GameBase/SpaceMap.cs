@@ -57,10 +57,4 @@ public class SpaceMap : MonoBehaviour
 		}
 		return true;
 	}
-
-	public static bool IsOverlapping(Vector2Int oneMin, Vector2Int oneMax, Vector2Int twoMin, Vector2Int twoMax)
-    {
-        return Mathf.Max(oneMin.x, twoMin.x) <= Mathf.Min(oneMax.x, twoMax.x) &&
-               Mathf.Max(oneMin.y, twoMin.y) <= Mathf.Min(oneMax.y, twoMax.y);
-    }
 }
