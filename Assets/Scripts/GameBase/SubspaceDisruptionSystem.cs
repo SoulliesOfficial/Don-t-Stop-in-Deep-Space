@@ -23,6 +23,9 @@ public class SubspaceDisruptionSystem : MonoBehaviour
     {
         subspaceDisruptionTargetValue = subspaceDisruptionValueParts.CalculateTargetValue();
         subspaceDisruptionValue = Mathf.Lerp(subspaceDisruptionValue, subspaceDisruptionTargetValue, 5 * Time.deltaTime);
+        GameManager.uiManager.subspaceDisruptionValueText.color = new Color(1, 1 - (subspaceDisruptionValue / 50), 1 - (subspaceDisruptionValue / 50));
+        GameManager.uiManager.subspaceDisruptionValueText.text = subspaceDisruptionValue.ToString("F1");
+
     }
 }
 

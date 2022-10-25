@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
+    public static UIManager uiManager;
     public static SubspaceDisruptionSystem subspaceDisruptionSystem;
     public static PlayerInputManager playerInputManager;
     public static Player player;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 120;
         gameManager = this;
+        uiManager = this.GetComponent<UIManager>();
         subspaceDisruptionSystem = this.GetComponent<SubspaceDisruptionSystem>();
         playerInputManager = this.GetComponent<PlayerInputManager>();
         player = playerInputManager.player;

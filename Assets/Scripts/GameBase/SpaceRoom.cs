@@ -20,18 +20,20 @@ public class SpaceRoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        roomCenter = transform.position;
-        roomBorderCollider = new List<PolygonColliderGenerator>();
-        roomBorders = new List<RoomBorder>();
-        maximumBorder = new Vector2[4] { new Vector2(-50, -50) * 1.1f, new Vector2(-50, 50) * 1.1f, new Vector2(50, 50) * 1.1f, new Vector2(50, -50) * 1.1f };
-        roomBorders.Add(new RoomBorder(new List<Vector2>() { new Vector2(-50, -50), new Vector2(-50, 50), new Vector2(50, 50), new Vector2(50, -50) }, RoomBorder.BorderShapeType.CatmullRom, true));
+        //roomCenter = transform.position;
+        //roomBorderCollider = new List<PolygonColliderGenerator>();
+        //roomBorders = new List<RoomBorder>();
+        //maximumBorder = new Vector2[2] {new Vector2(-50, 50) * 1.1f, new Vector2(50, -50) * 1.1f };
+        //roomBorders.Add(new RoomBorder(new List<Vector2>() { new Vector2(-50, -50), new Vector2(-50, 50), new Vector2(50, 50), new Vector2(50, -50) }, RoomBorder.BorderShapeType.CatmullRom, true));
 
 
 
         Observable.Timer(System.TimeSpan.FromSeconds(3)).Subscribe(_ =>
         {
-            GenerateSpaceRoom();
-            ES3.Save("SpaceRoom", new SpaceRoom_Save(this.maximumBorder, this.roomBorders, this.enemies), new ES3Settings(Application.streamingAssetsPath + "/Rooms/Room1.txt"));
+            //GenerateSpaceRoom();
+            //List<SpaceRoom_Save> rooms = new List<SpaceRoom_Save>();
+            //rooms.Add(new SpaceRoom_Save(this.maximumBorder, this.roomBorders, this.enemies));
+            //ES3.Save("SpaceRooms", rooms, new ES3Settings(Application.streamingAssetsPath + "/Rooms.txt"));
         });
     }
 
@@ -45,7 +47,7 @@ public class SpaceRoom : MonoBehaviour
             rbt.is2D = true;
             for (int j = 0; j < roomBorders[i].nodeList.Count; j++)
             {
-                rbt.SetPoint(j, new SplinePoint() { position = roomCenter + roomBorders[i].nodeList[j], size = 0.2f, color = Color.white });
+                rbt.SetPoint(j, new SplinePoint() { position = roomCenter + roomBorders[i].nodeList[j], size = 1f, color = Color.white });
             }
 
             if (roomBorders[i].isClosed)
@@ -62,11 +64,12 @@ public class SpaceRoom : MonoBehaviour
         }
     }
 
-    public static void GenerateSpaceRoom(SpaceRoom_Save spaceRoom_Save, Vector2 roomCenter)
+    public static SpaceRoom GenerateSpaceRoom(SpaceRoom_Save spaceRoom_Save, Vector2 roomCenter)
     {
         SpaceRoom sr = LeanPool.Spawn(GameManager.gameManager.gameBasePrefabs.spaceRoom).GetComponent<SpaceRoom>();
         sr.roomCenter = roomCenter;
         sr.transform.position = roomCenter;
+        sr.maximumBorder = spaceRoom_Save.maximumBorder;
 
         for (int i = 0; i < spaceRoom_Save.roomBorders.Count; i++)
         {
@@ -76,7 +79,7 @@ public class SpaceRoom : MonoBehaviour
             rbt.is2D = true;
             for (int j = 0; j < spaceRoom_Save.roomBorders[i].nodeList.Count; j++)
             {
-                rbt.SetPoint(j, new SplinePoint() { position = roomCenter + spaceRoom_Save.roomBorders[i].nodeList[j], size = 0.2f, color = Color.white });
+                rbt.SetPoint(j, new SplinePoint() { position = roomCenter + spaceRoom_Save.roomBorders[i].nodeList[j], size = 1f, color = Color.white });
             }
 
             if (spaceRoom_Save.roomBorders[i].isClosed)
@@ -91,6 +94,7 @@ public class SpaceRoom : MonoBehaviour
         {
             Enemy.GenerateEnemy(spaceRoom_Save.enemies[i].enemyName, sr, spaceRoom_Save.enemies[i].position);
         }
+        return sr;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -104,7 +108,7 @@ public class SpaceRoom : MonoBehaviour
 
 public class SpaceRoom_Save
 {
-    public Vector2[] maximumBorder = new Vector2[4];
+    public Vector2[] maximumBorder = new Vector2[2];
     public List<RoomBorder> roomBorders;
     public List<Enemy_Save> enemies;
 

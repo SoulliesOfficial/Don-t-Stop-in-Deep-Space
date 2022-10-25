@@ -26,8 +26,4 @@ public class ImperialCorvette : Enemy
         transform.up = v;
     }
 
-    public static void GenerateEnemy(SpaceRoom spaceRoom, Vector2 position)
-    {
-        LeanPool.Spawn(GameManager.gameManager.gameBasePrefabs.imperialCorvette, spaceRoom.roomCenter + position, Quaternion.identity);
-    }
 }

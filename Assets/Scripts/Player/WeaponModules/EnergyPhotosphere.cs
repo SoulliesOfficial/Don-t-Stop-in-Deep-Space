@@ -34,7 +34,7 @@ public class EnergyPhotosphere : PlayerWeaponModule
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles + new Vector3(0, 0, 10))).GetComponent<PhotosphereBullet>().Initialize(RotateVector(player.transform.up, 10), 10f);
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles + new Vector3(0, 0, -10))).GetComponent<PhotosphereBullet>().Initialize(RotateVector(player.transform.up, -10), 10f);
                 coolDown = 0;
-                GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 1f;
+                GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 3f;
             }
 
         }
