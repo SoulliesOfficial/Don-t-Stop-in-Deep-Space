@@ -22,19 +22,21 @@ public class EnergyPhotosphere : PlayerWeaponModule
     {
         if (player.isShooting && coolDown >= coolDownInterval)
         {
-            if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 25)
+            if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 15)
             {
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles)).GetComponent<PhotosphereBullet>().Initialize(player.transform.up, 10f);
                 coolDown = 0;
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 1f;
+                player.energy -= 5f;
             }
-            else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 50)
+            else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 30)
             {
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles)).GetComponent<PhotosphereBullet>().Initialize(player.transform.up, 10f + player.instantSpeed);
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles + new Vector3(0, 0, 10))).GetComponent<PhotosphereBullet>().Initialize(RotateVector(player.transform.up, 10), 10f);
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles + new Vector3(0, 0, -10))).GetComponent<PhotosphereBullet>().Initialize(RotateVector(player.transform.up, -10), 10f);
                 coolDown = 0;
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 3f;
+                player.energy -= 10f;
             }
 
         }

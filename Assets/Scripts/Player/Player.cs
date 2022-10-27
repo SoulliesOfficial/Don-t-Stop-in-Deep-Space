@@ -20,17 +20,19 @@ public class Player : MonoBehaviour
     public GameObject weaponModule, movementModule, functionalModule, passiveModule;
     public Vector2 playerPosition;
 
+    public float life, energy;
+    public float energyRecover;
+
     private Vector2 lastPos, nowPos;
     public Vector2 displacement;
-    public float instantSpeed, extraSpeed, extraAccleration;
-    public Vector2 extraDirection;
+    public float instantSpeed;
 
     void Start()
     {
         isInMovingOrder = false;
         isShooting = false;
-        extraSpeed = 0;
-        extraAccleration = 5;
+        life = 100;
+        energy = 100;
 
         InstallModule("movement", "AcclerationEngine");
         InstallModule("weapon", "EnergyPhotosphere");
@@ -46,7 +48,16 @@ public class Player : MonoBehaviour
             nowUsingMovementModule.Move();
         }
 
+        if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20)
+        {
+            energyRecover = 2;
+        }
+        else if(GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 40)
+        {
+            energyRecover = 1;
+        }
 
+        energy = Mathf.Lerp(energy, 100, energyRecover * Time.fixedDeltaTime);
 
         playerPosition = transform.position;
 
@@ -58,23 +69,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
         if (nowUsingWeaponModule != null)
         {
             nowUsingWeaponModule.Shoot();
         }
-
-        //if (extraSpeed > 0)
-        //{
-        //    extraSpeed -= extraAccleration * Time.deltaTime;
-        //    extraSpeed = Mathf.Max(0, extraSpeed);
-        //}
-        //else if(extraSpeed<0)
-        //{
-        //    extraSpeed += extraAccleration * Time.deltaTime;
-        //    extraSpeed = Mathf.Min(0, extraSpeed);
-        //}
-        //transform.Translate(extraDirection * extraSpeed * Time.deltaTime);
     }
 
     void InstallModule(string moduleType, string moduleName)
