@@ -22,23 +22,23 @@ public class SpaceMap : MonoBehaviour
 		SpaceRoom sr = SpaceRoom.GenerateSpaceRoom(newRoom, newRoomCenter);
 		spaceRooms.Add(sr);
 
-		for (int i = 0; i < Random.Range(6, 12); i++)
-		{
-			newRoomCenter = new Vector2(Random.Range(-200, 200), Random.Range(-200, 200));
-			newRoom = spaceRoomStorage[Random.Range(0, spaceRoomStorage.Count)];
-			if (IsValidRoom(newRoomCenter, new Vector2[] { newRoom.maximumBorder[0], newRoom.maximumBorder[1] }))
-			{
-				sr = SpaceRoom.GenerateSpaceRoom(newRoom, newRoomCenter);
-				spaceRooms.Add(sr);
+        for (int i = 0; i < Random.Range(6, 12); i++)
+        {
+            newRoomCenter = new Vector2(Random.Range(-200, 200), Random.Range(-200, 200));
+            newRoom = spaceRoomStorage[Random.Range(0, spaceRoomStorage.Count)];
+            if (IsValidRoom(newRoomCenter, new Vector2[] { newRoom.maximumBorder[0], newRoom.maximumBorder[1] }))
+            {
+                sr = SpaceRoom.GenerateSpaceRoom(newRoom, newRoomCenter);
+                spaceRooms.Add(sr);
             }
             else
             {
-				i--;
+                i--;
             }
-		}
+        }
     }
 
-	public bool IsValidRoom(Vector2 newRoomCenter, Vector2[] newRoomMaximumBorders)
+    public bool IsValidRoom(Vector2 newRoomCenter, Vector2[] newRoomMaximumBorders)
 	{
 		float r1Lenght, r1height;
 		float r2Lenght, r2height;

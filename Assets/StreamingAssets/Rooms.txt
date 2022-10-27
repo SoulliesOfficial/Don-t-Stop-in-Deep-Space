@@ -5,31 +5,114 @@
 			{
 				"maximumBorder" : [
 					{
-						"x" : -55,
-						"y" : 55
+						"x" : -100,
+						"y" : 80
 					},{
-						"x" : 55,
-						"y" : -55
+						"x" : 100,
+						"y" : -80
 					}
 				],
 				"roomBorders" : [
 					{
 						"nodeList" : [
 							{
-								"x" : -50,
+								"x" : -60,
 								"y" : -50
 							},{
-								"x" : -50,
+								"x" : -60,
+								"y" : -10
+							},{
+								"x" : -90,
+								"y" : -10
+							},{
+								"x" : -90,
+								"y" : 10
+							},{
+								"x" : -60,
+								"y" : 10
+							},{
+								"x" : -60,
+								"y" : 50
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : false
+					},
+
+{
+						"nodeList" : [
+							{
+								"x" : -60,
 								"y" : 50
 							},{
-								"x" : 50,
+								"x" : 0,
+								"y" : 70
+							},{
+								"x" : 60,
+								"y" : 50
+							}
+						],
+						"borderShapeType" : 1,
+						"isClosed" : false
+					},
+{
+						"nodeList" : [
+							{
+								"x" : 60,
 								"y" : 50
 							},{
-								"x" : 50,
+								"x" : 60,
+								"y" : 10
+							},{
+								"x" : 90,
+								"y" : 10
+							},{
+								"x" : 90,
+								"y" : -10
+							},{
+								"x" : 60,
+								"y" : -10
+							},{
+								"x" : 60,
+								"y" : -50
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : false
+					},
+{
+						"nodeList" : [
+							{
+								"x" : 60,
+								"y" : -50
+							},{
+								"x" : 0,
+								"y" : -70
+							},{
+								"x" : -60,
 								"y" : -50
 							}
 						],
 						"borderShapeType" : 1,
+						"isClosed" : false
+					},
+{
+						"nodeList" : [
+							{
+								"x" : -10,
+								"y" : 20
+							},{
+								"x" : 10,
+								"y" : 20
+							},{
+								"x" : 10,
+								"y" : -20
+							},{
+								"x" : -10,
+								"y" : -20
+							}
+						],
+						"borderShapeType" : 0,
 						"isClosed" : true
 					}
 				],
@@ -37,8 +120,14 @@
 					{
 						"enemyName" : "ImperialCorvette",
 						"position" : {
-							"x" : 10,
-							"y" : 10
+							"x" : -50,
+							"y" : 50
+						}
+					},{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : 50,
+							"y" : -50
 						}
 					}
 				]

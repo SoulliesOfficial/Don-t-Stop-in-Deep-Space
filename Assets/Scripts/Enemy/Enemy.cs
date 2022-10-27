@@ -7,7 +7,12 @@ public class Enemy : MonoBehaviour
 {
     public float health;
 
+    public Vector2 spawnPosition;
+
     public Collider2D substancialArea, hitArea;
+
+    public List<string> enemyStates;
+    public SpaceRoom room;
 
     public void Hurt(float damage)
     {
@@ -24,7 +29,9 @@ public class Enemy : MonoBehaviour
         GameObject enemy = GameManager.gameManager.enemyDictionary.GetValueOrDefault(enemyName);
         if (enemy != null)
         {
-            LeanPool.Spawn(enemy, spaceRoom.roomCenter + position, Quaternion.identity);
+            Enemy e = LeanPool.Spawn(enemy, spaceRoom.roomCenter + position, Quaternion.identity).GetComponent<Enemy>();
+            e.spawnPosition = position;
+            e.room = spaceRoom;
         }
     }
 }

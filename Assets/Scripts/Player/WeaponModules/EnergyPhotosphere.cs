@@ -11,11 +11,16 @@ public class EnergyPhotosphere : PlayerWeaponModule
     private void Start()
     {
         player = GameManager.playerInputManager.player;
+        Time.maximumDeltaTime = 0.02f;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        coolDown += Time.deltaTime;
+        coolDown += Time.fixedDeltaTime;
+        if (player.nowUsingWeaponModule != null)
+        {
+            Shoot();
+        }
     }
 
     public override void Shoot()
@@ -29,7 +34,7 @@ public class EnergyPhotosphere : PlayerWeaponModule
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 1f;
                 player.energy -= 5f;
             }
-            else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 30)
+            else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 50)
             {
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles)).GetComponent<PhotosphereBullet>().Initialize(player.transform.up, 10f + player.instantSpeed);
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles + new Vector3(0, 0, 10))).GetComponent<PhotosphereBullet>().Initialize(RotateVector(player.transform.up, 10), 10f);

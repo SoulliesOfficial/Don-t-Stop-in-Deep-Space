@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
         isShooting = false;
         life = 100;
         energy = 100;
+        energyRecover = 1;
 
         InstallModule("movement", "AcclerationEngine");
         InstallModule("weapon", "EnergyPhotosphere");
@@ -48,15 +49,6 @@ public class Player : MonoBehaviour
             nowUsingMovementModule.Move();
         }
 
-        if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20)
-        {
-            energyRecover = 2;
-        }
-        else if(GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 40)
-        {
-            energyRecover = 1;
-        }
-
         energy = Mathf.Lerp(energy, 100, energyRecover * Time.fixedDeltaTime);
 
         playerPosition = transform.position;
@@ -69,10 +61,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (nowUsingWeaponModule != null)
-        {
-            nowUsingWeaponModule.Shoot();
-        }
     }
 
     void InstallModule(string moduleType, string moduleName)

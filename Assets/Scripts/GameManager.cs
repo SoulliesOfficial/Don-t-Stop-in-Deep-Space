@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        Application.targetFrameRate = 120;
         gameManager = this;
         uiManager = this.GetComponent<UIManager>();
         subspaceDisruptionSystem = this.GetComponent<SubspaceDisruptionSystem>();

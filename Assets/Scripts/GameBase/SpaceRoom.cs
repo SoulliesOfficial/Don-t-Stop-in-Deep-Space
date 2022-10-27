@@ -42,7 +42,7 @@ public class SpaceRoom : MonoBehaviour
         for(int i = 0; i < roomBorders.Count; i++)
         {
             SplineComputer rbt = Instantiate(GameManager.gameManager.gameBasePrefabs.roomBorderTrack, transform).GetComponent<SplineComputer>();
-            PolygonColliderGenerator pcg = gameObject.AddComponent<PolygonColliderGenerator>();
+            PolygonColliderGenerator pcg = rbt.gameObject.AddComponent<PolygonColliderGenerator>();
             roomBorderCollider.Add(pcg);
             rbt.is2D = true;
             for (int j = 0; j < roomBorders[i].nodeList.Count; j++)
@@ -74,12 +74,21 @@ public class SpaceRoom : MonoBehaviour
         for (int i = 0; i < spaceRoom_Save.roomBorders.Count; i++)
         {
             SplineComputer rbt = Instantiate(GameManager.gameManager.gameBasePrefabs.roomBorderTrack, sr.transform).GetComponent<SplineComputer>();
-            PolygonColliderGenerator pcg = sr.gameObject.AddComponent<PolygonColliderGenerator>();
+            PolygonColliderGenerator pcg = rbt.gameObject.AddComponent<PolygonColliderGenerator>();
             sr.roomBorderCollider.Add(pcg);
             rbt.is2D = true;
             for (int j = 0; j < spaceRoom_Save.roomBorders[i].nodeList.Count; j++)
             {
                 rbt.SetPoint(j, new SplinePoint() { position = roomCenter + spaceRoom_Save.roomBorders[i].nodeList[j], size = 1f, color = Color.white });
+            }
+
+            if(spaceRoom_Save.roomBorders[i].borderShapeType == RoomBorder.BorderShapeType.Linear)
+            {
+                rbt.type = Spline.Type.Linear;
+            }
+            else if(spaceRoom_Save.roomBorders[i].borderShapeType == RoomBorder.BorderShapeType.CatmullRom)
+            {
+                rbt.type = Spline.Type.CatmullRom;
             }
 
             if (spaceRoom_Save.roomBorders[i].isClosed)

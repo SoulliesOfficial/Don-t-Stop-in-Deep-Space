@@ -19,19 +19,17 @@ public class CameraTrack : MonoBehaviour
 
     void FixedUpdate()
     {
-
-
         //this.transform.position = new Vector3(m_playerTransform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
 
-        smoothPos = 5;
+        smoothPos = 2.5f;
         smoothFOV = 0.5f;
 
         targetPos = new Vector3(m_playerTransform.position.x, m_playerTransform.transform.position.y, gameObject.transform.position.z);
         targetFOV = 10 + (m_playerTransform.GetComponent<Player>().instantSpeed / Time.fixedDeltaTime / 4);
 
-        transform.position = Vector3.Lerp(transform.position, targetPos, smoothPos * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, targetPos, smoothPos * Time.fixedDeltaTime);
 
-        playerCamera.orthographicSize = Mathf.Lerp(10, targetFOV, smoothFOV * Time.deltaTime);
+        playerCamera.orthographicSize = Mathf.Lerp(10, targetFOV, smoothFOV * Time.fixedDeltaTime);
     }
 }
 

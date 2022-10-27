@@ -54,7 +54,7 @@ MonoBehaviour:
   editorBillboardThickness: 1
   isNewlyCreated: 0
   editorUpdateMode: 0
-  multithreaded: 1
+  multithreaded: 0
   updateMode: 0
   triggerGroups: []
   _spline:
