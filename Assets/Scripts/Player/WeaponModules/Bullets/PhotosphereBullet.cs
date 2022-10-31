@@ -26,4 +26,13 @@ public class PhotosphereBullet : Bullet
     {
         gameObject.GetComponent<Rigidbody2D>().AddForce(direction * speed);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.GetComponent<Enemy>().Hurt(1);
+            LeanPool.Despawn(gameObject);
+        }
+    }
 }

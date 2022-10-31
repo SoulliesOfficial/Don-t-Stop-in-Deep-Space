@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AccelerationEngine : PlayerMovementModule
 {
-    public float speed;
+    public float pushForce;
     public float maxSpeed;
     public Vector3 vectorSpeed;
 
@@ -12,10 +12,11 @@ public class AccelerationEngine : PlayerMovementModule
 
     public Vector2 playerPosition, targetPosition, centerPosition, direction, rawDirection;
 
+    public bool isOverloading;
 
     private void Start()
     {
-        speed = 10;
+        pushForce = 500;
         maxSpeed = 20;
         acceleartion = 5;
         player = GameManager.playerInputManager.player;
@@ -44,16 +45,24 @@ public class AccelerationEngine : PlayerMovementModule
                 rawDirection = targetPosition - centerPosition;
                 direction = rawDirection.normalized;
                 player.transform.up = Vector3.Lerp(player.transform.up, direction, 0.25f);
-                player.GetComponent<Rigidbody2D>().AddForce(player.transform.up * speed);
+                player.GetComponent<Rigidbody2D>().AddForce(player.transform.up * pushForce * Time.fixedDeltaTime);
             }
 
             GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerMovement = player.GetComponent<Rigidbody2D>().velocity.magnitude;
         }
     }
 
-    public override void Stop()
+    public override void MoveAssistance()
     {
-        speed = 0;
-        player.isInMovingOrder = false;
+        if (!isOverloading)
+        {
+            isOverloading = true;
+            maxSpeed = 40;
+        }
+        else
+        {
+            isOverloading = false;
+            maxSpeed = 20;
+        }
     }
 }

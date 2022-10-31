@@ -8,6 +8,8 @@ public class Wormhole : MonoBehaviour
     public Wormhole toHole;
     public Vector2 fromPosition, toPosition;
 
+    public GameObject barrier;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")

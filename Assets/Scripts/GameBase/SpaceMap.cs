@@ -17,15 +17,17 @@ public class SpaceMap : MonoBehaviour
 
 	void GenerateMap()
 	{
+		spaceRoomStorage.Sort((SpaceRoom_Save x, SpaceRoom_Save y) => (x.order.CompareTo(y.order)));
 		Vector2 newRoomCenter = new Vector2(0,0);
-		SpaceRoom_Save newRoom = spaceRoomStorage[Random.Range(0, spaceRoomStorage.Count)];
+		SpaceRoom_Save newRoom = spaceRoomStorage[0];
 		SpaceRoom sr = SpaceRoom.GenerateSpaceRoom(newRoom, newRoomCenter);
 		spaceRooms.Add(sr);
+		GameManager.player.transform.position = sr.playerSpawnPosition;
 
-        for (int i = 0; i < Random.Range(6, 12); i++)
+        for (int i = 1; i < spaceRoomStorage.Count; i++)
         {
-            newRoomCenter = new Vector2(Random.Range(-200, 200), Random.Range(-200, 200));
-            newRoom = spaceRoomStorage[Random.Range(0, spaceRoomStorage.Count)];
+            newRoomCenter = new Vector2(Random.Range(-300, 300), Random.Range(-300, 300));
+            newRoom = spaceRoomStorage[i];
             if (IsValidRoom(newRoomCenter, new Vector2[] { newRoom.maximumBorder[0], newRoom.maximumBorder[1] }))
             {
                 sr = SpaceRoom.GenerateSpaceRoom(newRoom, newRoomCenter);

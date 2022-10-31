@@ -8,33 +8,19 @@ using System.Linq;
 
 public class SpaceRoom : MonoBehaviour
 {
-    public List<PolygonColliderGenerator> roomBorderCollider;
-
     public Vector2 roomCenter;
+
     public Vector2[] maximumBorder;
     public List<RoomBorder> roomBorders;
-    public List<Enemy_Save> enemies;
+    public List<Enemy_Save> enemieSaves;
+    public Vector2 playerSpawnPosition;
+    public List<Vector2> wormholePositions;
 
-
-
+    public List<Wormhole> wormholes;
+    public List<PolygonColliderGenerator> roomBorderCollider;
     // Start is called before the first frame update
     void Start()
     {
-        //roomCenter = transform.position;
-        //roomBorderCollider = new List<PolygonColliderGenerator>();
-        //roomBorders = new List<RoomBorder>();
-        //maximumBorder = new Vector2[2] {new Vector2(-50, 50) * 1.1f, new Vector2(50, -50) * 1.1f };
-        //roomBorders.Add(new RoomBorder(new List<Vector2>() { new Vector2(-50, -50), new Vector2(-50, 50), new Vector2(50, 50), new Vector2(50, -50) }, RoomBorder.BorderShapeType.CatmullRom, true));
-
-
-
-        Observable.Timer(System.TimeSpan.FromSeconds(3)).Subscribe(_ =>
-        {
-            //GenerateSpaceRoom();
-            //List<SpaceRoom_Save> rooms = new List<SpaceRoom_Save>();
-            //rooms.Add(new SpaceRoom_Save(this.maximumBorder, this.roomBorders, this.enemies));
-            //ES3.Save("SpaceRooms", rooms, new ES3Settings(Application.streamingAssetsPath + "/Rooms.txt"));
-        });
     }
 
     public void GenerateSpaceRoom()
@@ -58,9 +44,9 @@ public class SpaceRoom : MonoBehaviour
             pcg.spline = rbt;
         }
 
-        for (int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < enemieSaves.Count; i++)
         {
-            Enemy.GenerateEnemy(enemies[i].enemyName, this, enemies[i].position);
+            Enemy.GenerateEnemy(enemieSaves[i].enemyName, this, enemieSaves[i].position);
         }
     }
 
@@ -70,10 +56,14 @@ public class SpaceRoom : MonoBehaviour
         sr.roomCenter = roomCenter;
         sr.transform.position = roomCenter;
         sr.maximumBorder = spaceRoom_Save.maximumBorder;
+        sr.playerSpawnPosition = spaceRoom_Save.playerSpawnPosition;
+        sr.wormholePositions = spaceRoom_Save.possibleWormholePositions.ToList();
+        sr.roomBorders = new List<RoomBorder>();
+        sr.enemieSaves = new List<Enemy_Save>();
 
         for (int i = 0; i < spaceRoom_Save.roomBorders.Count; i++)
         {
-            SplineComputer rbt = Instantiate(GameManager.gameManager.gameBasePrefabs.roomBorderTrack, sr.transform).GetComponent<SplineComputer>();
+            SplineComputer rbt = LeanPool.Spawn(GameManager.gameManager.gameBasePrefabs.roomBorderTrack, sr.transform).GetComponent<SplineComputer>();
             PolygonColliderGenerator pcg = rbt.gameObject.AddComponent<PolygonColliderGenerator>();
             sr.roomBorderCollider.Add(pcg);
             rbt.is2D = true;
@@ -97,11 +87,13 @@ public class SpaceRoom : MonoBehaviour
             }
             rbt.RebuildImmediate();
             pcg.spline = rbt;
+            sr.roomBorders.Add(spaceRoom_Save.roomBorders[i]);
         }
 
-        for(int i = 0; i < spaceRoom_Save.enemies.Count; i++)
+        for (int i = 0; i < spaceRoom_Save.enemies.Count; i++)
         {
             Enemy.GenerateEnemy(spaceRoom_Save.enemies[i].enemyName, sr, spaceRoom_Save.enemies[i].position);
+            sr.enemieSaves.Add(spaceRoom_Save.enemies[i]);
         }
         return sr;
     }
@@ -115,19 +107,31 @@ public class SpaceRoom : MonoBehaviour
     }
 }
 
-public class SpaceRoom_Save
+public class SpaceRoom_Save : IComparer<SpaceRoom_Save>
 {
     public Vector2[] maximumBorder = new Vector2[2];
     public List<RoomBorder> roomBorders;
     public List<Enemy_Save> enemies;
 
+    public Vector2 playerSpawnPosition;
+    public Vector2[] possibleWormholePositions;
+    public int order;
+
     public SpaceRoom_Save() { }
 
-    public SpaceRoom_Save(Vector2[] maximumBorder, List<RoomBorder> roomBorders, List<Enemy_Save> enemies)
+    public SpaceRoom_Save(Vector2[] maximumBorder, List<RoomBorder> roomBorders, List<Enemy_Save> enemies,Vector2 playerSpawnPosition, Vector2[]possibleWormholePositions, int order)
     {
         this.maximumBorder = maximumBorder;
         this.roomBorders = roomBorders;
         this.enemies = enemies;
+        this.playerSpawnPosition = playerSpawnPosition;
+        this.possibleWormholePositions = possibleWormholePositions;
+        this.order = order;
+    }
+
+    public int Compare(SpaceRoom_Save x, SpaceRoom_Save y)
+    {
+        return x.order.CompareTo(y.order);
     }
 }
 

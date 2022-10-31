@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8250529845822150716}
   m_Layer: 0
   m_Name: EnemyB
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,8 +148,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  spawnPosition: {x: 0, y: 0}
   substancialArea: {fileID: 3106885673725526240}
   hitArea: {fileID: 3106885674116720204}
+  room: {fileID: 0}
   player: {fileID: 0}
   state: 0
   coolDown: 0

@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 3106885673725526046}
   - component: {fileID: 3106885673725526240}
   - component: {fileID: 3106885673725526241}
-  - component: {fileID: 3106885673725526242}
+  - component: {fileID: 6990534124087856863}
   m_Layer: 0
-  m_Name: BaseEnemy
+  m_Name: BlackHole
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3106885673725526047
 Transform:
   m_ObjectHideFlags: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -135,7 +135,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3106885673725526242
+--- !u!114 &6990534124087856863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,28 +144,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 3106885673725526045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c8ffd174181e4513bbb3e2404f91b5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a42df08dd9664c12b090215698af8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 0
   spawnPosition: {x: 0, y: 0}
-  substancialArea: {fileID: 3106885673725526240}
-  hitArea: {fileID: 3106885674116720204}
+  substancialArea: {fileID: 0}
+  hitArea: {fileID: 0}
   room: {fileID: 0}
   player: {fileID: 0}
-  state: 0
-  rotationSpeed: 0
-  idleWanderRange: 0
-  idleWanderTimeInterval: 0
-  idleWanderTime: 0
-  wanderPosition: {x: 0, y: 0}
-  idleSpeed: 0
-  pursueSpeed: 0
-  pursueToCrushTimeInterval: 0
-  pursueTocrushTime: 0
-  crushTimeInterval: 0
-  crushTime: 0
-  crushSpeed: 0
+  state: 
+  idleToAttractTimeInterval: 0
+  idleToAttractTime: 0
+  attractForce: 0
+  attractToIdleTimeInterval: 0
+  attractToIdleTime: 0
+  isCatching: 0
 --- !u!1 &3106885674116720202
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,4 +231,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075c26d1fbe9f4b59a56c2c5ae4f6cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3106885673725526242}
+  enemy: {fileID: 6990534124087856863}

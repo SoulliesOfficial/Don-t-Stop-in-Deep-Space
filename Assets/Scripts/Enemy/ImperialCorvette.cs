@@ -6,7 +6,6 @@ using Lean.Pool;
 public class ImperialCorvette : Enemy
 {
     public Player player;
-    public float stateInterval;
     public string state;
     public float rotationSpeed;
 
@@ -28,9 +27,8 @@ public class ImperialCorvette : Enemy
     void Start()
     {
         player = GameManager.player;
-        enemyStates = new List<string>() { "Idle", "Pursue", "Crush" };
         state = "Idle";
-        stateInterval = Random.Range(10f, 15f);
+        health = 10f;
         idleWanderRange = 10f;
         idleWanderTimeInterval = 10f;
         idleWanderTime = 10f;
@@ -61,7 +59,10 @@ public class ImperialCorvette : Enemy
             transform.up = Vector2.Lerp(transform.up, wanderPosition - new Vector2(transform.position.x, transform.position.y), rotationSpeed * Time.fixedDeltaTime);
             GetComponent<Rigidbody2D>().position = Vector2.Lerp(transform.position, wanderPosition, idleSpeed * Time.fixedDeltaTime);
 
-            CheckPursueState();
+            if ((transform.position - player.transform.position).magnitude <= 15f)
+            {
+                state = "Pursue";
+            }
         }
         else if(state == "Pursue")
         {
@@ -97,15 +98,6 @@ public class ImperialCorvette : Enemy
         }
 
 
-    }
-
-
-    void CheckPursueState()
-    {
-        if((transform.position - player.transform.position).magnitude <= 15f)
-        {
-            state = "Pursue";
-        }
     }
 
     //private void LookAt(Vector2 oriPos, Vector2 targetPos)

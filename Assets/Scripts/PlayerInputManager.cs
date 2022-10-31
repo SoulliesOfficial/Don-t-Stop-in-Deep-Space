@@ -10,11 +10,13 @@ public class PlayerInputManager : MonoBehaviour
 
     public KeyCode shootKey, switchWeaponKey;
     public KeyCode moveKey;
+    public KeyCode moveAssistanceKey;
     public KeyCode useFunctionalModuleKey, switchFunctionMuduleKey;
 
     void Start()
     {
         moveKey = KeyCode.Mouse0;
+        moveAssistanceKey = KeyCode.Mouse1;
     }
 
     void Update()
@@ -28,6 +30,11 @@ public class PlayerInputManager : MonoBehaviour
         else if(Input.GetKeyUp(moveKey))
         {
             player.isInMovingOrder = false;
+        }
+
+        if (Input.GetKeyDown(moveAssistanceKey))
+        {
+            player.nowUsingMovementModule.MoveAssistance();
         }
 
         if (Input.GetKeyDown(shootKey))

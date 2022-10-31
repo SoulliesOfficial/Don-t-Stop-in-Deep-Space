@@ -21,11 +21,11 @@ public class CameraTrack : MonoBehaviour
     {
         //this.transform.position = new Vector3(m_playerTransform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
 
-        smoothPos = 2.5f;
-        smoothFOV = 0.5f;
+        smoothPos = 2f + m_playerTransform.GetComponent<Player>().instantSpeed / Time.fixedDeltaTime * 0.2f;
+        smoothFOV = 0.1f;
 
         targetPos = new Vector3(m_playerTransform.position.x, m_playerTransform.transform.position.y, gameObject.transform.position.z);
-        targetFOV = 10 + (m_playerTransform.GetComponent<Player>().instantSpeed / Time.fixedDeltaTime / 4);
+        targetFOV = 10 + (m_playerTransform.GetComponent<Player>().instantSpeed / Time.fixedDeltaTime * 0.05f);
 
         transform.position = Vector3.Lerp(transform.position, targetPos, smoothPos * Time.fixedDeltaTime);
 

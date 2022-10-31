@@ -2,14 +2,16 @@
 	"SpaceRooms" : {
 		"__type" : "System.Collections.Generic.List`1[[SpaceRoom_Save, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],mscorlib",
 		"value" : [
+			
+
 			{
 				"maximumBorder" : [
 					{
 						"x" : -100,
-						"y" : 80
+						"y" : 100
 					},{
 						"x" : 100,
-						"y" : -80
+						"y" : -100
 					}
 				],
 				"roomBorders" : [
@@ -17,7 +19,7 @@
 						"nodeList" : [
 							{
 								"x" : -60,
-								"y" : -50
+								"y" : -51
 							},{
 								"x" : -60,
 								"y" : -10
@@ -32,7 +34,7 @@
 								"y" : 10
 							},{
 								"x" : -60,
-								"y" : 50
+								"y" : 51
 							}
 						],
 						"borderShapeType" : 0,
@@ -59,7 +61,7 @@
 						"nodeList" : [
 							{
 								"x" : 60,
-								"y" : 50
+								"y" : 51
 							},{
 								"x" : 60,
 								"y" : 10
@@ -74,7 +76,7 @@
 								"y" : -10
 							},{
 								"x" : 60,
-								"y" : -50
+								"y" : -51
 							}
 						],
 						"borderShapeType" : 0,
@@ -120,18 +122,929 @@
 					{
 						"enemyName" : "ImperialCorvette",
 						"position" : {
-							"x" : -50,
-							"y" : 50
+							"x" : -40,
+							"y" : 40
 						}
-					},{
-						"enemyName" : "ImperialCorvette",
+					},
+					{
+						"enemyName" : "ImperialDestroyer",
 						"position" : {
-							"x" : 50,
-							"y" : -50
+							"x" : 40,
+							"y" : -40
 						}
 					}
-				]
+				],
+				"playerSpawnPosition" : {
+					"x" : -85,
+					"y" : 0
+				},
+				"possibleWormholePositions" : [
+					{
+						"x" : 85,
+						"y" : 0
+					}
+				],
+				"order" : 0
+			},
+
+
+{
+				"maximumBorder" : [
+					{
+						"x" : -100,
+						"y" : 100
+					},{
+						"x" : 100,
+						"y" : -100
+					}
+				],
+				"roomBorders" : [
+					{
+						"nodeList" : [
+							{
+								"x" : -85,
+								"y" : -15
+							},{
+								"x" : -100,
+								"y" : -15
+							},{
+								"x" : -100,
+								"y" : 15
+							},{
+								"x" : -85,
+								"y" : 15
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : false
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : -85,
+								"y" : -15
+							},{
+								"x" : 0,
+								"y" : 100
+							},{
+								"x" : 85,
+								"y" : 15
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : false
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : 85,
+								"y" : 15
+							},{
+								"x" : 100,
+								"y" : 15
+							},{
+								"x" : 100,
+								"y" : -15
+							},{
+								"x" : 85,
+								"y" : -15
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : false
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : 85,
+								"y" : -15
+							},{
+								"x" : 0,
+								"y" : -100
+							},{
+								"x" : -85,
+								"y" : -15
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : false
+					}
+				],
+				"enemies" : [
+					{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : 10,
+							"y" : 10
+						}
+					}
+				],
+				"playerSpawnPosition" : {
+					"x" : -90,
+					"y" : 0
+				},
+				"possibleWormholePositions" : [
+					{
+						"x" : 0,
+						"y" : 0
+					}
+				],
+				"order" : 1
+
+			},
+
+
+{
+				"maximumBorder" : [
+					{
+						"x" : -120,
+						"y" : 100
+					},{
+						"x" : 120,
+						"y" : -100
+					}
+				],
+				"roomBorders" : [
+					{
+						"nodeList" : [
+							{
+								"x" : -50,
+								"y" : -40
+							},{
+								"x" : -70,
+								"y" : -10
+							},{
+								"x" : -65,
+								"y" : -40
+							},{
+								"x" : -110,
+								"y" : -40
+							},{
+								"x" : -110,
+								"y" : -60
+							},{
+								"x" : -65,
+								"y" : -60
+							},{
+								"x" : -70,
+								"y" : -90
+							},{
+								"x" : -50,
+								"y" : -60
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : false
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : -50,
+								"y" : -60
+							},{
+								"x" : 80,
+								"y" : -90
+							},{
+								"x" : 85,
+								"y" : -85
+							},{
+								"x" : 90,
+								"y" : -75
+							},{
+								"x" : 95,
+								"y" : -60
+							},{
+								"x" : 100,
+								"y" : -40
+							},{
+								"x" : 95,
+								"y" : -15
+							},{
+								"x" : 90,
+								"y" : 10
+							},{
+								"x" : 85,
+								"y" : 30
+							},{
+								"x" : 80,
+								"y" : 50
+							},{
+								"x" : 70,
+								"y" : 70
+							},{
+								"x" : 60,
+								"y" : 75
+							},{
+								"x" : 50,
+								"y" : 80
+							},{
+								"x" : 40,
+								"y" : 85
+							},{
+								"x" : 30,
+								"y" : 90
+							},{
+								"x" : 20,
+								"y" : 85
+							},{
+								"x" : 10,
+								"y" : 75
+							},{
+								"x" : 0,
+								"y" : 55
+							},{
+								"x" : -20,
+								"y" : 0
+							},{
+								"x" : -30,
+								"y" : -20
+							},{
+								"x" : -40,
+								"y" : -35
+							},{
+								"x" : -50,
+								"y" : -40
+							}
+						],
+						"borderShapeType" : 1,
+						"isClosed" : false
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : 0,
+								"y" : 10
+							},{
+								"x" : -10,
+								"y" : 10
+							},{
+								"x" : -5,
+								"y" : 20
+							},{
+								"x" : 0,
+								"y" : 25
+							},{
+								"x" : 20,
+								"y" : 35
+							},{
+								"x" : 30,
+								"y" : 40
+							},{
+								"x" : 40,
+								"y" : 35
+							},{
+								"x" : 60,
+								"y" : 25
+							},{
+								"x" : 65,
+								"y" : 20
+							},{
+								"x" : 70,
+								"y" : 10
+							},{
+								"x" : 60,
+								"y" : 10
+							},{
+								"x" : 50,
+								"y" : 20
+							},{
+								"x" : 30,
+								"y" : 30
+							},{
+								"x" : 10,
+								"y" : 20
+							}
+						],
+						"borderShapeType" : 1,
+						"isClosed" : true
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : 0,
+								"y" : -10
+							},{
+								"x" : -10,
+								"y" : -10
+							},{
+								"x" : -5,
+								"y" : -20
+							},{
+								"x" : 0,
+								"y" : -25
+							},{
+								"x" : 20,
+								"y" : -35
+							},{
+								"x" : 30,
+								"y" : -40
+							},{
+								"x" : 40,
+								"y" : -35
+							},{
+								"x" : 60,
+								"y" : -25
+							},{
+								"x" : 65,
+								"y" : -20
+							},{
+								"x" : 70,
+								"y" : -10
+							},{
+								"x" : 60,
+								"y" : -10
+							},{
+								"x" : 50,
+								"y" : -20
+							},{
+								"x" : 30,
+								"y" : -30
+							},{
+								"x" : 10,
+								"y" : -20
+							}
+						],
+						"borderShapeType" : 1,
+						"isClosed" : true
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : 10,
+								"y" : 0
+							},{
+								"x" : 30,
+								"y" : -20
+							},{
+								"x" : 50,
+								"y" : 0
+							},{
+								"x" : 30,
+								"y" : 20
+							}
+						],
+						"borderShapeType" : 1,
+						"isClosed" : true
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : -30,
+								"y" : 20
+							},{
+								"x" : -25,
+								"y" : 20
+							},{
+								"x" : -25,
+								"y" : -20
+							},{
+								"x" : -30,
+								"y" : -20
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : true
+},
+{
+
+
+						"nodeList" : [
+							{
+								"x" : -15,
+								"y" : 45
+							},{
+								"x" : -5,
+								"y" : 45
+							},{
+								"x" : -5,
+								"y" : 35
+							},{
+								"x" : -15,
+								"y" : 35
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : true
+},
+{
+
+
+						"nodeList" : [
+							{
+								"x" : 25,
+								"y" : 70
+							},{
+								"x" : 35,
+								"y" : 70
+							},{
+								"x" : 35,
+								"y" : 60
+							},{
+								"x" : 25,
+								"y" : 60
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : true
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : 75,
+								"y" : 35
+							},{
+								"x" : 85,
+								"y" : 35
+							},{
+								"x" : 85,
+								"y" : 25
+							},{
+								"x" : 75,
+								"y" : 25
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : true
+
+
+					}
+				],
+				"enemies" : [
+					{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : -68,
+							"y" : -20
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : -68,
+							"y" : -18
+						}
+					},
+{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : -68,
+							"y" : -16
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : -66,
+							"y" : -30
+						}
+					},
+{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : -66,
+							"y" : -28
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : -66,
+							"y" : -26
+						}
+					},
+{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : -66,
+							"y" : -24
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : -66,
+							"y" : -22
+						}
+					},
+{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : -66,
+							"y" : -20
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : -66,
+							"y" : -18
+						}
+					},
+{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : -64,
+							"y" : -30
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : -64,
+							"y" : -28
+						}
+					},
+{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : -64,
+							"y" : -26
+						}
+					},
+{
+						"enemyName" : "EnemyB",
+						"position" : {
+							"x" : -64,
+							"y" : -24
+						}
+					},
+{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : -64,
+							"y" : -22
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : -62,
+							"y" : -30
+						}
+					},
+{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : -62,
+							"y" : -28
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : -62,
+							"y" : -26
+						}
+					},
+{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : -62,
+							"y" : -24
+						}
+					}
+
+				],
+				"playerSpawnPosition" : {
+					"x" : -105,
+					"y" : -50
+				},
+				"possibleWormholePositions" : [
+					{
+						"x" : 95,
+						"y" : -50
+					}
+				],
+				"order" : 2
+
+			},
+
+
+{
+"maximumBorder" : [
+					{
+						"x" : -100,
+						"y" : 100
+					},{
+						"x" : 100,
+						"y" : -100
+					}
+				],
+				"roomBorders" : [
+					{
+						"nodeList" : [
+							{  
+								"x" : -85,
+								"y" : -15
+							},{
+								"x" : -100,
+								"y" : -15
+							},{
+								"x" : -100,
+								"y" : 15
+							},{
+								"x" : -85,
+								"y" : 15
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : false
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : -85,
+								"y" : 15
+							},{
+								"x" : -85,
+								"y" : 90
+							},{
+								"x" : -60,
+								"y" : 90
+							},{
+								"x" : -60,
+								"y" : 70
+							},{
+								"x" : 60,
+								"y" : 70
+							},{
+								"x" : 60,
+								"y" : 90
+							},{
+								"x" : 85,
+								"y" : 90
+							},{
+								"x" : 85,
+								"y" : 15
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : false
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : 85,
+								"y" : 15
+							},{
+								"x" : 100,
+								"y" : 15
+							},{
+								"x" : 100,
+								"y" : -15
+							},{
+								"x" : -85,
+								"y" : -15
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : false
+			
+},
+{
+						"nodeList" : [
+							{
+								"x" : 85,
+								"y" : -15
+							},{
+								"x" : 85,
+								"y" : -90
+							},{
+								"x" : 60,
+								"y" : -90
+							},{
+								"x" : 60,
+								"y" : -70
+							},{
+								"x" : -60,
+								"y" : -70
+							},{
+								"x" : -60,
+								"y" : -90
+							},{
+								"x" : -85,
+								"y" : -90
+							},{
+								"x" : -85,
+								"y" : -15
+							}
+						],
+						"borderShapeType" : 0,
+						"isClosed" : false
+},
+{
+
+
+						"nodeList" : [
+							{
+								"x" : -60,
+								"y" : 70
+							},{
+								"x" : -70,
+								"y" : 60
+							},{
+								"x" : -30,
+								"y" : 50
+							}
+							],
+						"borderShapeType" : 0,
+						"isClosed" : true
+},
+{
+						
+"nodeList" : [
+							{
+								"x" : -60,
+								"y" : -70
+							},{
+								"x" : -70,
+								"y" : -60
+							},{
+								"x" : -30,
+								"y" : -50
+							}
+							],
+						"borderShapeType" : 0,
+						"isClosed" : true
+},
+{
+						
+						"nodeList" : [
+							{
+								"x" : -70,
+								"y" : 30
+							},{
+								"x" : -40,
+								"y" : 20
+							},{
+								"x" : -40,
+								"y" : 10
+							},{
+								"x" : -70,
+								"y" : 0
+							},{
+								"x" : -40,
+								"y" : -10
+							},{
+								"x" : -40,
+								"y" : -20
+							},{
+								"x" : -70,
+								"y" : -30
+							}
+
+							],
+						"borderShapeType" : 0,
+						"isClosed" : true
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : -45,
+								"y" : 40
+							},{
+								"x" : -30,
+								"y" : 35
+							},{
+								"x" : -35,
+								"y" : 30
+							}
+							],
+						"borderShapeType" : 0,
+						"isClosed" : true
+},
+{
+
+						"nodeList" : [
+							{
+								"x" : -45,
+								"y" : -40
+							},{
+								"x" : -30,
+								"y" : -35
+							},{
+								"x" : -35,
+								"y" : -30
+							}
+							],
+						"borderShapeType" : 0,
+						"isClosed" : true
+},
+{
+
+
+						"nodeList" : [
+							{
+								"x" : 60,
+								"y" : 70
+							},{
+								"x" : 70,
+								"y" : 60
+							},{
+								"x" : 30,
+								"y" : 50
+							}
+							],
+						"borderShapeType" : 0,
+						"isClosed" : true
+},
+{
+						
+"nodeList" : [
+							{
+								"x" : 60,
+								"y" : -70
+							},{
+								"x" : 70,
+								"y" : -60
+							},{
+								"x" : 30,
+								"y" : -50
+							}
+							],
+						"borderShapeType" : 0,
+						"isClosed" : true
+},
+{
+						
+						"nodeList" : [
+							{
+								"x" : 70,
+								"y" : 30
+							},{
+								"x" : 40,
+								"y" : 20
+							},{
+								"x" : 40,
+								"y" : 10
+							},{
+								"x" : 70,
+								"y" : 0
+							},{
+								"x" : 40,
+								"y" : -10
+							},{
+								"x" : 40,
+								"y" : -20
+							},{
+								"x" : 70,
+								"y" : -30
+							}
+							],
+						"borderShapeType" : 0,
+						"isClosed" : true
+
+					}
+				],
+"enemies" : [
+					{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : 10,
+							"y" : 0
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : -30,
+							"y" : 60
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : -30,
+							"y" : -60
+						}
+					}
+				],
+"playerSpawnPosition" : {
+                        	"x" : -90,
+                    		"y" : 0
+               	 },
+"possibleWormholePositions" : [
+                            	{
+                                   "x" : 0,
+                                   "y" : 0
+                           	 }
+                ],
+                "order" : 3
+
 			}
+
 		]
 	}
 }

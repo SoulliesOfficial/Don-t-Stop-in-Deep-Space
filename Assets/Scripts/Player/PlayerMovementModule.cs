@@ -6,5 +6,5 @@ public abstract class PlayerMovementModule : MonoBehaviour
 {
     public Player player;
     public abstract void Move();
-    public abstract void Stop();
+    public abstract void MoveAssistance();
 }

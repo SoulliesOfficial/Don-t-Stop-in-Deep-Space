@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Lean.Pool;
 
-public class EnemyB : Enemy
+public class ImperialDestroyer : Enemy
 {
     public Player player;
     public int state;
