@@ -8,7 +8,9 @@ public class UIManager : MonoBehaviour
 {
     public TMP_Text subspaceDisruptionValueText;
 
-    public Image life, energy, disruption;
+    public Image life, energy, disruption, weaponImage;
+
+    public List<Sprite> weaponIconList;
 
     public void Update()
     {

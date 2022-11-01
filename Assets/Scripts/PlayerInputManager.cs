@@ -46,6 +46,7 @@ public class PlayerInputManager : MonoBehaviour
             }
 
             player.nowUsingWeaponModule = player.weaponModuleList[player.nowUsingWeaponModuleIndex];
+            GameManager.uiManager.weaponImage.sprite = GameManager.uiManager.weaponIconList[player.nowUsingWeaponModuleIndex];
         }
 
         if (Input.GetKeyDown(shootKey))

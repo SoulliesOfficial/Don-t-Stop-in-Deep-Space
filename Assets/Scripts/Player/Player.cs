@@ -39,9 +39,10 @@ public class Player : MonoBehaviour
         energyRecover = 5f;
 
         InstallModule("movement", "AcclerationEngine");
-        InstallModule("weapon", "LightLanceConcentrator");
-        InstallModule("weapon", "MissileLauncher");
+
         InstallModule("weapon", "EnergyPhotosphere");
+        InstallModule("weapon", "MissileLauncher");
+        InstallModule("weapon", "LightLanceConcentrator");
 
         this.nowUsingMovementModule = movementModuleList[0];
         this.nowUsingWeaponModule = weaponModuleList[0];
