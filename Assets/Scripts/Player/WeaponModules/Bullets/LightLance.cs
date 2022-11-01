@@ -10,7 +10,7 @@ public class LightLance : MonoBehaviour
     public SplineComputer lance;
     public SplineRenderer lanceRenderer;
     public PolygonColliderGenerator lanceCollider;
-    public float existTime;
+    public float existTime, lanceSize;
     public float damage;
     public List<Enemy> hits;
 
@@ -18,16 +18,17 @@ public class LightLance : MonoBehaviour
     {
         lance.type = Spline.Type.Linear;
         this.damage = damage;
+        lanceSize = 1f;
         if(damage <= 5f)
         {
-            lanceRenderer.color = Color.blue;
+            lanceSize = 1f;
         }
         else
         {
-            lanceRenderer.color = Color.red;
+            lanceSize = 2f;
         }
-        lance.SetPoint(0, new SplinePoint() { position = playerPosition, size = 1f, color = Color.white });
-        lance.SetPoint(1, new SplinePoint() { position = playerPosition + 100 * direction, size = 1f, color = Color.white });
+        lance.SetPoint(0, new SplinePoint() { position = playerPosition, size = lanceSize, color = Color.white });
+        lance.SetPoint(1, new SplinePoint() { position = playerPosition + 100 * direction, size = 0, color = Color.white });
         lanceCollider.spline = lance;
         existTime = 0f;
         hits.Clear();
@@ -37,8 +38,8 @@ public class LightLance : MonoBehaviour
     private void FixedUpdate()
     {
         existTime += Time.fixedDeltaTime;
-        lance.SetPointSize(0, 1f - 2 * existTime);
-        lance.SetPointSize(1, 1f - 2 * existTime);
+        lance.SetPointSize(0, lanceSize - (2 * lanceSize * existTime));
+        lance.SetPointSize(1,  0);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

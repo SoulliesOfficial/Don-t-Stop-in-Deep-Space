@@ -226,7 +226,7 @@ MonoBehaviour:
   _uvMode: 0
   _uvScale: {x: 1, y: 1}
   _uvOffset: {x: 0, y: 0}
-  _uvRotation: 0
+  _uvRotation: 90
   _meshIndexFormat: 0
   _bakedMesh: {fileID: 0}
   colliderUpdateRate: 0.2
