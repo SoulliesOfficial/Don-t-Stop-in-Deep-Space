@@ -9,7 +9,7 @@ public class ImperialDestroyer : Enemy
     public string state;
     public float rotationSpeed;
 
-    public const float coolDownInterval = 1f;
+    public const float coolDownInterval = 2f;
     public float coolDown = 0f;
     public GameObject enemyBBullet;
 
