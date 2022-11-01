@@ -29,7 +29,7 @@ public class LightLanceConcentrator : PlayerWeaponModule
             if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20 && player.energy >= 33f)
             {
                 LeanPool.Spawn(lightLance, transform.position, Quaternion.Euler(player.transform.eulerAngles))
-                    .GetComponent<LightLance>().Initialize(transform.position, player.transform.up, 4);
+                    .GetComponent<LightLance>().Initialize(transform.position, player.transform.up, 10);
                 coolDown = 0;
                 damage = 10;
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 50f;
@@ -38,7 +38,7 @@ public class LightLanceConcentrator : PlayerWeaponModule
             else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue >= 20 && player.energy>=66f)
             {
                 LeanPool.Spawn(lightLance, transform.position, Quaternion.Euler(player.transform.eulerAngles))
-                    .GetComponent<LightLance>().Initialize(transform.position, player.transform.up, 8);
+                    .GetComponent<LightLance>().Initialize(transform.position, player.transform.up, 20);
                 damage = 20;
                 coolDown = 0;
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 50f;

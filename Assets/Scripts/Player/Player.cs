@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     public List<PlayerPassiveModule> passiveModuleList;
 
+    public TrailRenderer trail;
+
     public bool isInMovingOrder, isShooting;
 
     public GameObject weaponModule, movementModule, functionalModule, passiveModule;

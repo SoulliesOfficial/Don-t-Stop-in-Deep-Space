@@ -60,7 +60,7 @@ MonoBehaviour:
   _spline:
     points: []
     type: 3
-    linearAverageDirection: 1
+    linearAverageDirection: 0
     customValueInterpolation:
       serializedVersion: 2
       m_Curve: []

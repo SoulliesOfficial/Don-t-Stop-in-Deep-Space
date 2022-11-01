@@ -23,8 +23,9 @@ public class SpaceMap : MonoBehaviour
 		SpaceRoom sr = SpaceRoom.GenerateSpaceRoom(newRoom, newRoomCenter);
 		spaceRooms.Add(sr);
 		GameManager.player.transform.position = sr.playerSpawnPosition;
+		GameManager.player.trail.gameObject.SetActive(true);
 
-        for (int i = 1; i < spaceRoomStorage.Count; i++)
+		for (int i = 1; i < spaceRoomStorage.Count; i++)
         {
             newRoomCenter = new Vector2(Random.Range(-300, 300), Random.Range(-300, 300));
             newRoom = spaceRoomStorage[i];
