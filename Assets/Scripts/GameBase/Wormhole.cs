@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Lean.Pool;
+using UniRx;
 public class Wormhole : MonoBehaviour
 {
     public SpaceRoom fromRoom, toRoom;
@@ -15,6 +16,11 @@ public class Wormhole : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             collision.gameObject.transform.position = toRoom.roomCenter + toPosition;
+            collision.gameObject.GetComponent<Player>().trail.gameObject.SetActive(false);
+            Observable.Timer(System.TimeSpan.FromSeconds(1f)).Subscribe(_ =>
+            {
+                collision.gameObject.GetComponent<Player>().trail.gameObject.SetActive(true);
+            });
             //toHole.GetComponent<Collider2D>().enabled = false;
         }
     }
