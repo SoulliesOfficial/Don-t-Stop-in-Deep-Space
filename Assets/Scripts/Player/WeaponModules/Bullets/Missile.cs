@@ -41,7 +41,7 @@ public class Missile : MonoBehaviour
             for (int i = 0; i < enemies.Length; i++)
             {
                 float dis = Vector2.Distance(transform.position, enemies[i].transform.position);
-                if (dis <= 20)
+                if (dis <= 30)
                 {
                     SetTarget(enemies[i].GetComponent<Enemy>());
                 }

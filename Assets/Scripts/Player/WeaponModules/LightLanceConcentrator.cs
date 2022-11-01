@@ -16,13 +16,9 @@ public class LightLanceConcentrator : PlayerWeaponModule
         damage = 10;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        coolDown += Time.fixedDeltaTime;
-        if (player.nowUsingWeaponModule != null)
-        {
-            Shoot();
-        }
+        coolDown += Time.deltaTime;
     }
 
     public override void Shoot()

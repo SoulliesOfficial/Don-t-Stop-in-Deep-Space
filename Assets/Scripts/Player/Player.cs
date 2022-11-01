@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public List<PlayerWeaponModule> weaponModuleList;
     public PlayerWeaponModule nowUsingWeaponModule;
+    public int nowUsingWeaponModuleIndex;
 
     public List<PlayerMovementModule> movementModuleList;
     public PlayerMovementModule  nowUsingMovementModule;
@@ -38,11 +39,13 @@ public class Player : MonoBehaviour
         energyRecover = 5f;
 
         InstallModule("movement", "AcclerationEngine");
-        //InstallModule("weapon", "LightLanceConcentrator");
+        InstallModule("weapon", "LightLanceConcentrator");
         InstallModule("weapon", "MissileLauncher");
+        InstallModule("weapon", "EnergyPhotosphere");
 
         this.nowUsingMovementModule = movementModuleList[0];
         this.nowUsingWeaponModule = weaponModuleList[0];
+        this.nowUsingWeaponModuleIndex = 0;
     }
 
     private void FixedUpdate()
@@ -50,6 +53,11 @@ public class Player : MonoBehaviour
         if (nowUsingMovementModule != null)
         {
             nowUsingMovementModule.Move();
+        }
+
+        if (nowUsingWeaponModule != null)
+        {
+            nowUsingWeaponModule.Shoot();
         }
 
         energy += energyRecover * Time.fixedDeltaTime;

@@ -37,6 +37,17 @@ public class PlayerInputManager : MonoBehaviour
             player.nowUsingMovementModule.MoveAssistance();
         }
 
+        if (Input.GetKeyDown(switchWeaponKey))
+        {
+            player.nowUsingWeaponModuleIndex++;
+            if (player.nowUsingWeaponModuleIndex > player.weaponModuleList.Count - 1)
+            {
+                player.nowUsingWeaponModuleIndex = 0;
+            }
+
+            player.nowUsingWeaponModule = player.weaponModuleList[player.nowUsingWeaponModuleIndex];
+        }
+
         if (Input.GetKeyDown(shootKey))
         {
             player.isShooting = true;

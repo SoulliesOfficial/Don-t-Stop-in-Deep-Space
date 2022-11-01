@@ -35,11 +35,14 @@ MonoBehaviour:
     - Dreamteck.Splines
     - UniRx
     - LeanPool
+    - MK.Glow
     - Assembly-CSharp
     - LeanCommon
     - UniRx.Examples
     - Dreamteck.Splines.Editor
     - PsdPlugin
+    - MK.Glow.Editor
+    - MK.Glow.URP.Editor
     - PPv2URPConverters
     - Dreamteck.Utilities.Editor
     showAdvancedSettings: 0

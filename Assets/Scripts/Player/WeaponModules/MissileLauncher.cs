@@ -14,13 +14,9 @@ public class MissileLauncher : PlayerWeaponModule
         player = GameManager.playerInputManager.player;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        coolDown += Time.fixedDeltaTime;
-        if (player.nowUsingWeaponModule != null)
-        {
-            Shoot();
-        }
+        coolDown += Time.deltaTime;
     }
 
     public override void Shoot()
