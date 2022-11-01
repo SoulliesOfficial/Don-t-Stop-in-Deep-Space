@@ -31,7 +31,7 @@ public class ImperialDestroyer : Enemy
         idleWanderTime = 10f;
         idleSpeed = 0.1f;
         rotationSpeed = 1f;
-        pursueSpeed = 5f;
+        pursueSpeed = 6f;
     }
 
     void FixedUpdate()
@@ -50,7 +50,7 @@ public class ImperialDestroyer : Enemy
             transform.up = Vector2.Lerp(transform.up, wanderPosition - new Vector2(transform.position.x, transform.position.y), rotationSpeed * Time.fixedDeltaTime);
             GetComponent<Rigidbody2D>().position = Vector2.Lerp(transform.position, wanderPosition, idleSpeed * Time.fixedDeltaTime);
 
-            if ((transform.position - player.transform.position).magnitude <= 15f)
+            if ((transform.position - player.transform.position).magnitude <= 30f)
             {
                 state = "Pursue";
             }
