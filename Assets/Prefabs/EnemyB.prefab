@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3106885673725526045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.9, y: 2.75, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3106885674116720203}
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.19436097, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 976307974e4f34f6bbd411a2cdd0ddc5, type: 3}
+  m_Color: {r: 1, g: 0.71649104, b: 0.6367924, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,7 +105,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.79, y: 0.8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -154,8 +154,15 @@ MonoBehaviour:
   room: {fileID: 0}
   player: {fileID: 0}
   state: 0
+  rotationSpeed: 0
   coolDown: 0
   enemyBBullet: {fileID: 6645224159872967026, guid: 4a7714c5e77f34ea58a76643739693a5, type: 3}
+  idleWanderRange: 0
+  idleWanderTimeInterval: 0
+  idleWanderTime: 0
+  wanderPosition: {x: 0, y: 0}
+  idleSpeed: 0
+  pursueSpeed: 0
 --- !u!1 &3106885674116720202
 GameObject:
   m_ObjectHideFlags: 0
