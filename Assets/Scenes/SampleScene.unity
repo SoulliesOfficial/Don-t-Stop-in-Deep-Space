@@ -1035,7 +1035,10 @@ MonoBehaviour:
   gameBasePrefabs:
     spaceRoom: {fileID: 4459558857637560612, guid: 7faaf287a171a4d90b8320e9ee3447b1, type: 3}
     roomBorderTrack: {fileID: 7114510052779300391, guid: aaf280d30207c4436bee0399f962370c, type: 3}
+    wormhole: {fileID: 7955968918119633150, guid: 30093e1a5d66d4657b8ae34b78079dca, type: 3}
     imperialCorvette: {fileID: 3106885673725526045, guid: 5747db94191564e5a850d49059e26ff5, type: 3}
+    imperialDestroyer: {fileID: 0}
+    blackHole: {fileID: 0}
 --- !u!4 &84572526
 Transform:
   m_ObjectHideFlags: 0
@@ -1078,6 +1081,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subspaceDisruptionValueText: {fileID: 643316849}
+  life: {fileID: 130070049}
+  energy: {fileID: 1183007968}
+  disruption: {fileID: 1636957801}
 --- !u!114 &84572529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4121,9 +4127,12 @@ MonoBehaviour:
   playerCamera: {fileID: 519420031}
   Ahead: 10
   targetPos: {x: 0, y: 0, z: 0}
+  spring: 0.01
   targetFOV: 0
   smoothPos: 0
   smoothFOV: 0
+  distance: 0
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &545604323
 GameObject:
   m_ObjectHideFlags: 0

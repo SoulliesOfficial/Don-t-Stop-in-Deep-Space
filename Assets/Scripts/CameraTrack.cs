@@ -12,24 +12,37 @@ public class CameraTrack : MonoBehaviour
 
     //设置一个摄像机要移动到的点
     public Vector3 targetPos;
+    public float spring = 0.01f;
 
     public float targetFOV;
     //设置一个缓动速度插值
-    public float smoothPos, smoothFOV;
+    public float smoothPos, smoothFOV, distance;
+    public Vector3 offset;
+
+    private void Start()
+    {
+        smoothPos = 20f;
+        smoothFOV = 1f;
+        spring = 0.1f;
+        transform.position = new Vector3(m_playerTransform.position.x, m_playerTransform.position.y, -10);
+    }
 
     void FixedUpdate()
     {
         //this.transform.position = new Vector3(m_playerTransform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
 
-        smoothPos = 2f + m_playerTransform.GetComponent<Player>().instantSpeed / Time.fixedDeltaTime * 0.2f;
-        smoothFOV = 0.1f;
-
         targetPos = new Vector3(m_playerTransform.position.x, m_playerTransform.transform.position.y, gameObject.transform.position.z);
-        targetFOV = 10 + (m_playerTransform.GetComponent<Player>().instantSpeed / Time.fixedDeltaTime * 0.05f);
+        targetFOV = 10 + (m_playerTransform.GetComponent<Player>().instantSpeed / Time.fixedDeltaTime * 0.005f);
 
-        transform.position = Vector3.Lerp(transform.position, targetPos, smoothPos * Time.fixedDeltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, targetPos, smoothPos * Time.fixedDeltaTime);
 
-        playerCamera.orthographicSize = Mathf.Lerp(10, targetFOV, smoothFOV * Time.fixedDeltaTime);
+
+        distance = Vector2.Distance(this.transform.position, m_playerTransform.position);
+        transform.position = Vector3.MoveTowards(this.transform.position, targetPos, distance * spring + smoothPos * Time.fixedDeltaTime);
+
+
+        playerCamera.orthographicSize = Mathf.Lerp(playerCamera.orthographicSize, targetFOV, distance * smoothFOV * Time.fixedDeltaTime);
     }
+
 }
 

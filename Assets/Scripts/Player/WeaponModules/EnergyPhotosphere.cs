@@ -11,39 +11,37 @@ public class EnergyPhotosphere : PlayerWeaponModule
     private void Start()
     {
         player = GameManager.playerInputManager.player;
-        Time.maximumDeltaTime = 0.02f;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        coolDown += Time.fixedDeltaTime;
-        if (player.nowUsingWeaponModule != null)
-        {
-            Shoot();
-        }
+        coolDown -= Time.deltaTime;
+        Shoot();
+        //if (player.nowUsingWeaponModule != null)
+        //{
+        //}
     }
 
     public override void Shoot()
     {
-        if (player.isShooting && coolDown >= coolDownInterval)
+        if (player.isShooting && coolDown <= 0)
         {
-            if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 15)
+            if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20 && player.energy >= 2f)
             {
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles)).GetComponent<PhotosphereBullet>().Initialize(player.transform.up, 10f);
-                coolDown = 0;
+                coolDown = 0.2f;
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 1f;
-                player.energy -= 5f;
+                player.energy -= 2f;
             }
-            else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 50)
+            else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue >= 20 && player.energy >= 6f)
             {
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles)).GetComponent<PhotosphereBullet>().Initialize(player.transform.up, 10f + player.instantSpeed);
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles + new Vector3(0, 0, 10))).GetComponent<PhotosphereBullet>().Initialize(RotateVector(player.transform.up, 10), 10f);
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles + new Vector3(0, 0, -10))).GetComponent<PhotosphereBullet>().Initialize(RotateVector(player.transform.up, -10), 10f);
-                coolDown = 0;
+                coolDown = 0.2f;
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 3f;
-                player.energy -= 10f;
+                player.energy -= 6f;
             }
-
         }
     }
 

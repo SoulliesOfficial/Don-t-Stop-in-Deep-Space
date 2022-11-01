@@ -41,6 +41,10 @@ public class GameBasePrefabs
 {
     public GameObject spaceRoom;
     public GameObject roomBorderTrack;
+    public GameObject wormhole;
 
     public GameObject imperialCorvette;
+    public GameObject imperialDestroyer;
+    public GameObject blackHole;
+
 }

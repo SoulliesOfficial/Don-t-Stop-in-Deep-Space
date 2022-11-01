@@ -27,16 +27,19 @@ public class Player : MonoBehaviour
     public Vector2 displacement;
     public float instantSpeed;
 
+    public float invincibleTime;
+
     void Start()
     {
         isInMovingOrder = false;
         isShooting = false;
         life = 100;
         energy = 100;
-        energyRecover = 1;
+        energyRecover = 5f;
 
         InstallModule("movement", "AcclerationEngine");
-        InstallModule("weapon", "LightLanceConcentrator");
+        //InstallModule("weapon", "LightLanceConcentrator");
+        InstallModule("weapon", "MissileLauncher");
 
         this.nowUsingMovementModule = movementModuleList[0];
         this.nowUsingWeaponModule = weaponModuleList[0];
@@ -49,8 +52,8 @@ public class Player : MonoBehaviour
             nowUsingMovementModule.Move();
         }
 
-        energy = Mathf.Lerp(energy, 100, energyRecover * Time.fixedDeltaTime);
-
+        energy += energyRecover * Time.fixedDeltaTime;
+        energy = Mathf.Min(energy, 100f);
         playerPosition = transform.position;
 
         nowPos = transform.position;
@@ -61,6 +64,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        invincibleTime -= Time.deltaTime;
     }
 
     void InstallModule(string moduleType, string moduleName)
@@ -92,9 +96,22 @@ public class Player : MonoBehaviour
         mod.transform.localEulerAngles = Vector3.zero;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+        if (invincibleTime < 0) {
+            if (collision.gameObject.tag == "Enemy")
+            {
+                life -= 25;
+                invincibleTime = 3f;
+            }
+
+            if (collision.gameObject.tag == "EnemyBullet")
+            {
+                life -= 25;
+                invincibleTime = 3f;
+                Destroy(collision.gameObject);
+            }
+        }
     }
 
 }

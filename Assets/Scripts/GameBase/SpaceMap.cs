@@ -32,8 +32,9 @@ public class SpaceMap : MonoBehaviour
             {
                 sr = SpaceRoom.GenerateSpaceRoom(newRoom, newRoomCenter);
                 spaceRooms.Add(sr);
-            }
-            else
+				Wormhole.GenerateWormhole(spaceRooms[i - 1], spaceRooms[i - 1].wormholePositions[0], sr, sr.playerSpawnPosition);
+			}
+			else
             {
                 i--;
             }

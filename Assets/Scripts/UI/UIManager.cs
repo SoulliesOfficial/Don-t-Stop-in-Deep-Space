@@ -7,4 +7,13 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public TMP_Text subspaceDisruptionValueText;
+
+    public Image life, energy, disruption;
+
+    public void Update()
+    {
+        life.fillAmount = (GameManager.player.life / 100f);
+        energy.fillAmount = (GameManager.player.energy / 100f);
+        disruption.fillAmount = (GameManager.subspaceDisruptionSystem.subspaceDisruptionTargetValue / 100f);
+    }
 }

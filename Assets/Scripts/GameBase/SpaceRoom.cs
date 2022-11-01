@@ -98,6 +98,8 @@ public class SpaceRoom : MonoBehaviour
         return sr;
     }
 
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.Reflect(collision.relativeVelocity * -1, collision.contacts[0].normal);

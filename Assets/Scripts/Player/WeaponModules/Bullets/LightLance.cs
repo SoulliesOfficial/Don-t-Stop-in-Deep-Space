@@ -11,28 +11,42 @@ public class LightLance : MonoBehaviour
     public SplineRenderer lanceRenderer;
     public PolygonColliderGenerator lanceCollider;
     public float existTime;
+    public float damage;
+    public List<Enemy> hits;
 
-    public void Initialize(Vector2 playerPosition, Vector2 direction)
+    public void Initialize(Vector2 playerPosition, Vector2 direction, float damage)
     {
         lance.type = Spline.Type.Linear;
-        lance.SetPoint(0, new SplinePoint() { position = playerPosition, size = 0.5f, color = Color.white });
-        lance.SetPoint(1, new SplinePoint() { position = playerPosition + 100 * direction, size = 0f, color = Color.white });
+        this.damage = damage;
+        if(damage <= 5f)
+        {
+            lanceRenderer.color = Color.blue;
+        }
+        else
+        {
+            lanceRenderer.color = Color.red;
+        }
+        lance.SetPoint(0, new SplinePoint() { position = playerPosition, size = 1f, color = Color.white });
+        lance.SetPoint(1, new SplinePoint() { position = playerPosition + 100 * direction, size = 1f, color = Color.white });
         lanceCollider.spline = lance;
         existTime = 0f;
+        hits.Clear();
         Observable.Timer(System.TimeSpan.FromSeconds(0.5)).First().Subscribe(_ => { LeanPool.Despawn(gameObject); }).AddTo(this);
     }
 
     private void FixedUpdate()
     {
         existTime += Time.fixedDeltaTime;
-        lance.SetPointSize(0, 0.5f - existTime);
+        lance.SetPointSize(0, 1f - 2 * existTime);
+        lance.SetPointSize(1, 1f - 2 * existTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && !hits.Contains(collision.GetComponent<Enemy>()))
         {
-            collision.GetComponent<Enemy>().Hurt(5);
+            hits.Add(collision.GetComponent<Enemy>());
+            collision.GetComponent<Enemy>().Hurt(damage);
         }
     }
 }
