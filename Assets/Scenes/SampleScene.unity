@@ -1037,8 +1037,8 @@ MonoBehaviour:
     roomBorderTrack: {fileID: 7114510052779300391, guid: aaf280d30207c4436bee0399f962370c, type: 3}
     wormhole: {fileID: 7955968918119633150, guid: 30093e1a5d66d4657b8ae34b78079dca, type: 3}
     imperialCorvette: {fileID: 3106885673725526045, guid: 5747db94191564e5a850d49059e26ff5, type: 3}
-    imperialDestroyer: {fileID: 0}
-    blackHole: {fileID: 0}
+    imperialDestroyer: {fileID: 3106885673725526045, guid: 4d2df3fabd1b5463f8319b1ebe318711, type: 3}
+    blackHole: {fileID: 3106885673725526045, guid: b7e8613d0d553458a9aee86f36a26e7a, type: 3}
 --- !u!4 &84572526
 Transform:
   m_ObjectHideFlags: 0
@@ -8036,6 +8036,7 @@ MonoBehaviour:
   energyRecover: 0
   displacement: {x: 0, y: 0}
   instantSpeed: 0
+  invincibleTime: 0
 --- !u!50 &1035219042
 Rigidbody2D:
   serializedVersion: 4

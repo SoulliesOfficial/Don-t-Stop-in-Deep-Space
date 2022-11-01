@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
 
         enemyDictionary = new Dictionary<string, GameObject>();
         enemyDictionary.Add("ImperialCorvette", gameBasePrefabs.imperialCorvette);
+        enemyDictionary.Add("ImperialDestroyer", gameBasePrefabs.imperialDestroyer);
+        enemyDictionary.Add("BlackHole", gameBasePrefabs.blackHole);
+
     }
 
     // Update is called once per frame

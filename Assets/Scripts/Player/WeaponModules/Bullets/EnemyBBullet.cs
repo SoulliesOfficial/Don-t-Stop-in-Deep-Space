@@ -26,4 +26,14 @@ public class EnemyBBullet : Bullet
     {
         gameObject.GetComponent<Rigidbody2D>().AddForce(direction * speed);
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.GetComponent<Player>().life -= 25;
+            collision.GetComponent<Player>().invincibleTime = 3f;
+            Destroy(gameObject);
+        }
+    }
 }

@@ -105,12 +105,12 @@ public class Player : MonoBehaviour
                 invincibleTime = 3f;
             }
 
-            if (collision.gameObject.tag == "EnemyBullet")
-            {
-                life -= 25;
-                invincibleTime = 3f;
-                Destroy(collision.gameObject);
-            }
+            //if (collision.gameObject.tag == "EnemyBullet")
+            //{
+            //    life -= 25;
+            //    invincibleTime = 3f;
+            //    Destroy(collision.gameObject);
+            //}
         }
     }
 

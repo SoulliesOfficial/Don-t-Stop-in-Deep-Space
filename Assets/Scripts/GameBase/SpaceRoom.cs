@@ -17,6 +17,7 @@ public class SpaceRoom : MonoBehaviour
     public List<Vector2> wormholePositions;
 
     public List<Wormhole> wormholes;
+    public List<Enemy> enemies;
     public List<PolygonColliderGenerator> roomBorderCollider;
     // Start is called before the first frame update
     void Start()
@@ -60,7 +61,7 @@ public class SpaceRoom : MonoBehaviour
         sr.wormholePositions = spaceRoom_Save.possibleWormholePositions.ToList();
         sr.roomBorders = new List<RoomBorder>();
         sr.enemieSaves = new List<Enemy_Save>();
-
+        sr.enemies = new List<Enemy>();
         for (int i = 0; i < spaceRoom_Save.roomBorders.Count; i++)
         {
             SplineComputer rbt = LeanPool.Spawn(GameManager.gameManager.gameBasePrefabs.roomBorderTrack, sr.transform).GetComponent<SplineComputer>();
@@ -92,8 +93,9 @@ public class SpaceRoom : MonoBehaviour
 
         for (int i = 0; i < spaceRoom_Save.enemies.Count; i++)
         {
-            Enemy.GenerateEnemy(spaceRoom_Save.enemies[i].enemyName, sr, spaceRoom_Save.enemies[i].position);
+            Enemy e = Enemy.GenerateEnemy(spaceRoom_Save.enemies[i].enemyName, sr, spaceRoom_Save.enemies[i].position);
             sr.enemieSaves.Add(spaceRoom_Save.enemies[i]);
+            sr.enemies.Add(e);
         }
         return sr;
     }

@@ -19,11 +19,20 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            room.enemies.Remove(this);
+            if(room.enemies.Count == 0)
+            {
+                for(int i = 0; i < room.wormholes.Count; i++)
+                {
+                    room.wormholes[i].GetComponent<SpriteRenderer>().color = Color.white;
+                    room.wormholes[i].GetComponent<BoxCollider2D>().enabled = true;
+                }
+            }
             Destroy(gameObject);
         }
     }
 
-    public static void GenerateEnemy(string enemyName, SpaceRoom spaceRoom, Vector2 position)
+    public static Enemy GenerateEnemy(string enemyName, SpaceRoom spaceRoom, Vector2 position)
     {
         GameObject enemy = GameManager.gameManager.enemyDictionary.GetValueOrDefault(enemyName);
         if (enemy != null)
@@ -31,7 +40,9 @@ public class Enemy : MonoBehaviour
             Enemy e = LeanPool.Spawn(enemy, spaceRoom.roomCenter + position, Quaternion.identity).GetComponent<Enemy>();
             e.spawnPosition = spaceRoom.roomCenter + position;
             e.room = spaceRoom;
+            return e;
         }
+        return null;
     }
 }
 

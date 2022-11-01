@@ -29,5 +29,10 @@ public class Wormhole : MonoBehaviour
         wormhole.fromPosition = fromPosition;
         wormhole.toPosition = toPosition;
         wormhole.transform.position = exactFromPosition;
+
+        wormhole.GetComponent<SpriteRenderer>().color = Color.gray;
+        wormhole.GetComponent<BoxCollider2D>().enabled = false;
+        fromRoom.wormholes.Add(wormhole);
+
     }
 }
