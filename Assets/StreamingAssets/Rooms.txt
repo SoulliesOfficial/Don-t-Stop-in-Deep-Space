@@ -762,7 +762,7 @@
 					}
 				],
 				"playerSpawnPosition" : {
-					"x" : -390,
+					"x" : -370,
 					"y" : -100
 				},
 				"possibleWormholePositions" : [
