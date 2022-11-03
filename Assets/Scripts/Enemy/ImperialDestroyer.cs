@@ -5,6 +5,7 @@ using Lean.Pool;
 
 public class ImperialDestroyer : Enemy
 {
+
     public Player player;
     public string state;
     public float rotationSpeed;
@@ -60,6 +61,7 @@ public class ImperialDestroyer : Enemy
             coolDown += Time.deltaTime;
             if (coolDown >= coolDownInterval)
             {
+                enemyAudioSource.PlayOneShot(e_shootSound);
                 LeanPool.Spawn(enemyBBullet, transform.position, Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, 0))).GetComponent<EnemyBBullet>().Initialize(RotateVector(this.transform.up, 0), 10f);
                 LeanPool.Spawn(enemyBBullet, transform.position, Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, 45))).GetComponent<EnemyBBullet>().Initialize(RotateVector(this.transform.up, 45), 10f);
                 LeanPool.Spawn(enemyBBullet, transform.position, Quaternion.Euler(transform.eulerAngles + new Vector3(0, 0, -45))).GetComponent<EnemyBBullet>().Initialize(RotateVector(this.transform.up, -45), 10f);

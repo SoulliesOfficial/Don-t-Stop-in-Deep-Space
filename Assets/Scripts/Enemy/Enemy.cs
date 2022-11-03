@@ -6,8 +6,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     //audio
-    public AudioClip deathSound;
     public AudioSource enemyAudioSource;
+    public AudioClip e_deathSound;
+    public AudioClip e_hitSound;
+    public AudioClip e_shootSound;
+    public AudioClip e_dashSound;
+    
     
 
     public float health;
@@ -20,6 +24,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Hurt(float damage)
     {
+        enemyAudioSource.PlayOneShot(e_hitSound);
         health -= damage;
 
         if (health <= 0)
@@ -34,6 +39,7 @@ public class Enemy : MonoBehaviour
                 }
             }
             //add death sound effect
+            enemyAudioSource.PlayOneShot(e_deathSound);
             Destroy(gameObject);
         }
     }

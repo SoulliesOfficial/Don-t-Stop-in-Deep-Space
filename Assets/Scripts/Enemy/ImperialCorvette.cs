@@ -5,6 +5,7 @@ using Lean.Pool;
 
 public class ImperialCorvette : Enemy
 {
+
     public Player player;
     public string state;
     public float rotationSpeed;
@@ -91,6 +92,8 @@ public class ImperialCorvette : Enemy
             {
                 state = "Pursue";
             }
+
+            enemyAudioSource.PlayOneShot(e_dashSound);
 
             transform.Translate(Vector2.up * crushSpeed * Time.fixedDeltaTime);
             crushTime -= Time.fixedDeltaTime;
