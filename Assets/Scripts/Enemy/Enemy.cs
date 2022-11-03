@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    //audio
+    public AudioClip deathSound;
+    public AudioSource enemyAudioSource;
+    
+
     public float health;
 
     public Vector2 spawnPosition;
@@ -28,6 +33,7 @@ public class Enemy : MonoBehaviour
                     room.wormholes[i].GetComponent<BoxCollider2D>().enabled = true;
                 }
             }
+            //add death sound effect
             Destroy(gameObject);
         }
     }

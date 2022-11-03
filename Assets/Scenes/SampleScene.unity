@@ -12387,6 +12387,7 @@ MonoBehaviour:
   bgmSmooth: {fileID: 8300000, guid: a79f0618574fb754891753a308edc1ad, type: 3}
   bgmFast: {fileID: 8300000, guid: f1c6ad26d954246448b5cdc13a12cb40, type: 3}
   currentStage: 0
+  audioPlayer: {fileID: 1509272902}
 --- !u!1 &1521903468
 GameObject:
   m_ObjectHideFlags: 0

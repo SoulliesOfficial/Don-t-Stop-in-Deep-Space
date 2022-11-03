@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+
     public List<PlayerWeaponModule> weaponModuleList;
     public PlayerWeaponModule nowUsingWeaponModule;
     public int nowUsingWeaponModuleIndex;
@@ -115,6 +117,7 @@ public class Player : MonoBehaviour
                 life -= 25;
                 invincibleTime = 3f;
             }
+            
 
             //if (collision.gameObject.tag == "EnemyBullet")
             //{
