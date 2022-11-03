@@ -59,7 +59,7 @@ public class ImperialCorvette : Enemy
             transform.up = Vector2.Lerp(transform.up, wanderPosition - new Vector2(transform.position.x, transform.position.y), rotationSpeed * Time.fixedDeltaTime);
             GetComponent<Rigidbody2D>().position = Vector2.Lerp(transform.position, wanderPosition, idleSpeed * Time.fixedDeltaTime);
 
-            if ((transform.position - player.transform.position).magnitude <= 70f)
+            if ((transform.position - player.transform.position).magnitude <= 80f)
             {
                 state = "Pursue";
             }
