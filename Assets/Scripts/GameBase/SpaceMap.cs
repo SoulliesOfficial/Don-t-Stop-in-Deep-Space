@@ -28,7 +28,7 @@ public class SpaceMap : MonoBehaviour
 
 		for (int i = 1; i < spaceRoomStorage.Count; i++)
         {
-            newRoomCenter = new Vector2(Random.Range(-1000, 1000), Random.Range(-1000, 1000));
+            newRoomCenter = new Vector2(Random.Range(-750, 750), Random.Range(-750, 750));
             newRoom = spaceRoomStorage[i];
             if (IsValidRoom(newRoomCenter, new Vector2[] { newRoom.maximumBorder[0], newRoom.maximumBorder[1] }))
             {
