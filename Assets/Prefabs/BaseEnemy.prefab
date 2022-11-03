@@ -235,7 +235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c8ffd174181e4513bbb3e2404f91b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 8300000, guid: 91b9a270e7478634c8440bbb14d8e9d4, type: 3}
+  enemyAudioSource: {fileID: -5139772391478675181}
+  e_deathSound: {fileID: 8300000, guid: b048ed3ded11abd4f9a1bd53005261d3, type: 3}
+  e_hitSound: {fileID: 8300000, guid: b048ed3ded11abd4f9a1bd53005261d3, type: 3}
+  e_shootSound: {fileID: 8300000, guid: e2c137e468b20704883cd7328fc58b97, type: 3}
+  e_dashSound: {fileID: 8300000, guid: d77ee22cfbda9a948b8cc817f12254b8, type: 3}
   health: 10
   spawnPosition: {x: 0, y: 0}
   substancialArea: {fileID: 3106885673725526240}
