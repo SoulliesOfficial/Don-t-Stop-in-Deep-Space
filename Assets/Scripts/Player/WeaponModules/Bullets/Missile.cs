@@ -18,7 +18,7 @@ public class Missile : MonoBehaviour
     {
         state = "Forward";
         targetEnemy = null;
-        rotationSpeed = 1f;
+        rotationSpeed = 2f;
         //speed = 40f;
 
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -49,7 +49,7 @@ public class Missile : MonoBehaviour
         }
         else if (state == "Pursue" && targetEnemy != null)
         {
-            float frameSpeed = Time.fixedDeltaTime * speed;
+            float frameSpeed = Time.fixedDeltaTime * speed * 2f;
 
             transform.up = Vector2.Lerp(transform.up,
                 new Vector2(targetEnemy.transform.position.x - transform.position.x, targetEnemy.transform.position.y - transform.position.y),

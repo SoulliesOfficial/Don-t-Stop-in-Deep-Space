@@ -16,6 +16,7 @@ public class Wormhole : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             collision.gameObject.transform.position = toRoom.roomCenter + toPosition;
+            collision.gameObject.GetComponent<Player>().nowRoom = toRoom;
             collision.gameObject.GetComponent<Player>().trail.gameObject.SetActive(false);
             Observable.Timer(System.TimeSpan.FromSeconds(1f)).Subscribe(_ =>
             {

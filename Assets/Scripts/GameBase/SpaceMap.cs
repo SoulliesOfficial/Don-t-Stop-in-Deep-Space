@@ -24,6 +24,7 @@ public class SpaceMap : MonoBehaviour
 		spaceRooms.Add(sr);
 		GameManager.player.transform.position = sr.playerSpawnPosition;
 		GameManager.player.trail.gameObject.SetActive(true);
+		GameManager.player.nowRoom = sr;
 
 		for (int i = 1; i < spaceRoomStorage.Count; i++)
         {

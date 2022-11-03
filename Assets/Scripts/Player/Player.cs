@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-
     public List<PlayerWeaponModule> weaponModuleList;
     public PlayerWeaponModule nowUsingWeaponModule;
     public int nowUsingWeaponModuleIndex;
@@ -33,6 +31,8 @@ public class Player : MonoBehaviour
     public float instantSpeed;
 
     public float invincibleTime;
+    public Transform pointer;
+    public SpaceRoom nowRoom;
 
     void Start()
     {
@@ -73,6 +73,15 @@ public class Player : MonoBehaviour
         displacement = nowPos - lastPos;
         instantSpeed = displacement.magnitude / Time.fixedDeltaTime;
         lastPos = nowPos;
+        if (nowRoom.enemies.Count > 0)
+        {
+            pointer.transform.up = (nowRoom.enemies[0].transform.position - pointer.transform.position).normalized;
+        }
+        else
+        {
+            pointer.transform.up = (nowRoom.wormholes[0].transform.position - pointer.transform.position).normalized;
+        }
+
     }
 
     void Update()
