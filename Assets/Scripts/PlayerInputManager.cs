@@ -32,7 +32,7 @@ public class PlayerInputManager : MonoBehaviour
             player.isInMovingOrder = false;
         }
 
-        if (Input.GetKeyDown(moveAssistanceKey))
+        if (Input.GetKey(moveAssistanceKey))
         {
             player.nowUsingMovementModule.MoveAssistance();
         }

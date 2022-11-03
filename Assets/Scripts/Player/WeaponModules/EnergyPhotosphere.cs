@@ -38,6 +38,10 @@ public class EnergyPhotosphere : PlayerWeaponModule
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 3f;
                 player.energy -= 6f;
             }
+            else
+            {
+                GameManager.uiManager.shipUI.StartShake();
+            }
         }
     }
 

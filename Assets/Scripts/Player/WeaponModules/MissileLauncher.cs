@@ -39,6 +39,11 @@ public class MissileLauncher : PlayerWeaponModule
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 5f;
                 player.energy -= 20f;
             }
+            else
+            {
+                GameManager.uiManager.shipUI.StartShake();
+            }
+
         }
     }
 }

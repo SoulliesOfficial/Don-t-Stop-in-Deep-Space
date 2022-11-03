@@ -17,7 +17,7 @@ public class AccelerationEngine : PlayerMovementModule
     private void Start()
     {
         pushForce = 500;
-        maxSpeed = 20;
+        maxSpeed = 50;
         acceleartion = 5;
         player = GameManager.playerInputManager.player;
     }
@@ -44,7 +44,7 @@ public class AccelerationEngine : PlayerMovementModule
             {
                 rawDirection = targetPosition - centerPosition;
                 direction = rawDirection.normalized;
-                player.transform.up = Vector3.Lerp(player.transform.up, direction, 0.25f);
+                player.transform.up = Vector3.Lerp(player.transform.up, direction, 0.5f);
                 player.GetComponent<Rigidbody2D>().AddForce(player.transform.up * pushForce * Time.fixedDeltaTime);
             }
 
@@ -54,15 +54,7 @@ public class AccelerationEngine : PlayerMovementModule
 
     public override void MoveAssistance()
     {
-        if (!isOverloading)
-        {
-            isOverloading = true;
-            maxSpeed = 40;
-        }
-        else
-        {
-            isOverloading = false;
-            maxSpeed = 20;
-        }
+        Rigidbody2D p2d = player.GetComponent<Rigidbody2D>();
+        p2d.velocity = Vector2.Lerp(p2d.velocity, Vector2.zero, pushForce * 0.001f * Time.fixedDeltaTime);
     }
 }

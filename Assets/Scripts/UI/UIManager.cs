@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
 
     public List<Sprite> weaponIconList;
 
+    public ShipUI shipUI;
+
     public void Update()
     {
         life.fillAmount = (GameManager.player.life / 100f);

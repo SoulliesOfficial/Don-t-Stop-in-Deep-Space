@@ -44,6 +44,11 @@ public class LightLanceConcentrator : PlayerWeaponModule
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 50f;
                 player.energy -= 66f;
             }
+            else
+            {
+                GameManager.uiManager.shipUI.StartShake();
+            }
+
         }
     }
 }

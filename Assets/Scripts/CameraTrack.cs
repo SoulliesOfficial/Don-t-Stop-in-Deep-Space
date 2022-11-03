@@ -22,9 +22,10 @@ public class CameraTrack : MonoBehaviour
     private void Start()
     {
         smoothPos = 20f;
-        smoothFOV = 1f;
+        smoothFOV = 2f;
         spring = 0.1f;
         transform.position = new Vector3(m_playerTransform.position.x, m_playerTransform.position.y, -10);
+        targetFOV = 10;
     }
 
     void FixedUpdate()
@@ -32,7 +33,7 @@ public class CameraTrack : MonoBehaviour
         //this.transform.position = new Vector3(m_playerTransform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
 
         targetPos = new Vector3(m_playerTransform.position.x, m_playerTransform.transform.position.y, gameObject.transform.position.z);
-        targetFOV = 10 + (m_playerTransform.GetComponent<Player>().instantSpeed / Time.fixedDeltaTime * 0.005f);
+        targetFOV = 10 + (m_playerTransform.GetComponent<Player>().instantSpeed / Time.fixedDeltaTime * 0.01f);
 
         //transform.position = Vector3.MoveTowards(transform.position, targetPos, smoothPos * Time.fixedDeltaTime);
 
@@ -41,7 +42,7 @@ public class CameraTrack : MonoBehaviour
         transform.position = Vector3.MoveTowards(this.transform.position, targetPos, distance * spring + smoothPos * Time.fixedDeltaTime);
 
 
-        playerCamera.orthographicSize = Mathf.Lerp(playerCamera.orthographicSize, targetFOV, distance * smoothFOV * Time.fixedDeltaTime);
+        playerCamera.orthographicSize = Mathf.Lerp(playerCamera.orthographicSize, targetFOV, smoothFOV * Time.fixedDeltaTime);
     }
 
 }
