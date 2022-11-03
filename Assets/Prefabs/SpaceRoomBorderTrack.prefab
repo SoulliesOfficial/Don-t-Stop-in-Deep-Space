@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6911717907044507241}
   m_Layer: 0
   m_Name: SpaceRoomBorderTrack
-  m_TagString: Untagged
+  m_TagString: Obscatle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

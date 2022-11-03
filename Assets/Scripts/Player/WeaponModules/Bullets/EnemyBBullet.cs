@@ -35,5 +35,10 @@ public class EnemyBBullet : Bullet
             collision.GetComponent<Player>().invincibleTime = 3f;
             Destroy(gameObject);
         }
+        else if (collision.gameObject.tag == "Obscatle")
+        {
+            LeanPool.Despawn(gameObject);
+        }
+
     }
 }
