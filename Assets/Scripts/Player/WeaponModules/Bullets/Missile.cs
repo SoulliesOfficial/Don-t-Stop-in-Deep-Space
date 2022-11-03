@@ -82,5 +82,9 @@ public class Missile : MonoBehaviour
             collision.GetComponent<Enemy>().Hurt(2);
             LeanPool.Despawn(gameObject);
         }
+        else if (collision.gameObject.tag == "Obscatle")
+        {
+            LeanPool.Despawn(gameObject);
+        }
     }
 }

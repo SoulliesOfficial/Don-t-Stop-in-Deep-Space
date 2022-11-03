@@ -34,5 +34,10 @@ public class PhotosphereBullet : Bullet
             collision.GetComponent<Enemy>().Hurt(1);
             LeanPool.Despawn(gameObject);
         }
+        else if (collision.gameObject.tag == "Obscatle")
+        {
+            LeanPool.Despawn(gameObject);
+        }
+
     }
 }
