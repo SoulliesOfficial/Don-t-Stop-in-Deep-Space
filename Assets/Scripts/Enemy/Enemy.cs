@@ -7,10 +7,12 @@ public class Enemy : MonoBehaviour
 {
     //audio
     public AudioSource enemyAudioSource;
+    // public AudioSource playerAudioSource;
     public AudioClip e_deathSound;
     public AudioClip e_hitSound;
     public AudioClip e_shootSound;
     public AudioClip e_dashSound;
+    public bool playedSound = true;
     
     
 
@@ -29,6 +31,11 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            //add death sound effect
+            GameObject playerAudio = GameObject.FindWithTag("Player");
+            playerAudio.GetComponent<AudioSource>().PlayOneShot(e_deathSound);
+
+
             room.enemies.Remove(this);
             if(room.enemies.Count == 0)
             {
@@ -38,8 +45,7 @@ public class Enemy : MonoBehaviour
                     room.wormholes[i].GetComponent<BoxCollider2D>().enabled = true;
                 }
             }
-            //add death sound effect
-            enemyAudioSource.PlayOneShot(e_deathSound);
+            
             Destroy(gameObject);
         }
     }

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class LightLanceConcentrator : PlayerWeaponModule
 {
+    //
+    public AudioSource sfxPlayer;
+
     public float coolDownInterval = 2f;
     public float coolDown = 0f;
     public GameObject lightLance;
@@ -28,6 +31,10 @@ public class LightLanceConcentrator : PlayerWeaponModule
             Vector2 direction = player.transform.up;
             if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20 && player.energy >= 33f)
             {
+                //
+                sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;
+                sfxPlayer.PlayOneShot(GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().p_laser);
+
                 LeanPool.Spawn(lightLance, transform.position, Quaternion.Euler(player.transform.eulerAngles))
                     .GetComponent<LightLance>().Initialize(transform.position, player.transform.up, 10);
                 coolDown = 0;
@@ -37,6 +44,10 @@ public class LightLanceConcentrator : PlayerWeaponModule
             }
             else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue >= 20 && player.energy>=66f)
             {
+                //
+                sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;
+                sfxPlayer.PlayOneShot(GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().p_laser);
+
                 LeanPool.Spawn(lightLance, transform.position, Quaternion.Euler(player.transform.eulerAngles))
                     .GetComponent<LightLance>().Initialize(transform.position, player.transform.up, 20);
                 damage = 20;

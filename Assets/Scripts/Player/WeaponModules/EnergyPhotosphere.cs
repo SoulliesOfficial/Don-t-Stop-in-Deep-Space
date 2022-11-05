@@ -4,6 +4,11 @@ using UnityEngine;
 using Lean.Pool;
 public class EnergyPhotosphere : PlayerWeaponModule
 {
+    //
+    AudioSource sfxPlayer;
+
+
+
     public const float coolDownInterval = 0.2f;
     public float coolDown = 0f;
     public GameObject photosphereBullet;
@@ -24,6 +29,10 @@ public class EnergyPhotosphere : PlayerWeaponModule
         {
             if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20 && player.energy >= 2f)
             {
+                //
+                sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;
+                sfxPlayer.PlayOneShot(GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().p_shoot);
+
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles)).GetComponent<PhotosphereBullet>().Initialize(player.transform.up, 10f);
                 coolDown = 0f;
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 1f;
@@ -31,6 +40,10 @@ public class EnergyPhotosphere : PlayerWeaponModule
             }
             else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue >= 20 && player.energy >= 6f)
             {
+                //
+                sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;
+                sfxPlayer.PlayOneShot(GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().p_shoot);
+
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles)).GetComponent<PhotosphereBullet>().Initialize(player.transform.up, 10f + player.instantSpeed);
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles + new Vector3(0, 0, 10))).GetComponent<PhotosphereBullet>().Initialize(RotateVector(player.transform.up, 10), 10f);
                 LeanPool.Spawn(photosphereBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles + new Vector3(0, 0, -10))).GetComponent<PhotosphereBullet>().Initialize(RotateVector(player.transform.up, -10), 10f);

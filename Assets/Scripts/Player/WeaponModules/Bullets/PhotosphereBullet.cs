@@ -10,7 +10,7 @@ public class PhotosphereBullet : Bullet
     public float speed;
 
     public void Initialize(Vector2 direction, float speed)
-    {
+    {   
         this.direction = direction;
         this.speed = speed;
         gameObject.GetComponent<Rigidbody2D>().velocity = (direction * GameManager.playerInputManager.player.instantSpeed)+ (GameManager.playerInputManager.player.displacement.normalized * GameManager.playerInputManager.player.instantSpeed);

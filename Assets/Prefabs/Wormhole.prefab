@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd16f1caec6149e0a06be32edf32fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAudioSource: {fileID: 0}
+  wormholeSound: {fileID: 8300000, guid: 5253dd0eabb45ee4fafedff35432e158, type: 3}
   fromRoom: {fileID: 0}
   toRoom: {fileID: 0}
   toHole: {fileID: 0}

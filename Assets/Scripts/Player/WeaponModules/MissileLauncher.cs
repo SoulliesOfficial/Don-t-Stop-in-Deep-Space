@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class MissileLauncher : PlayerWeaponModule
 {
+    //
+    public AudioSource sfxPlayer;
+
+
     public float coolDownInterval = 1f;
     public float coolDown = 0f;
     public GameObject missileBullet;
@@ -25,6 +29,10 @@ public class MissileLauncher : PlayerWeaponModule
         {
             if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20 && player.energy >= 20f)
             {
+                //
+                sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;
+                sfxPlayer.PlayOneShot(GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().p_missle);
+
                 coolDownInterval = 1f;
                 LeanPool.Spawn(missileBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles)).GetComponent<Missile>().Initialize(player.transform.up, 10f + player.instantSpeed);
                 coolDown = 0;
@@ -33,6 +41,10 @@ public class MissileLauncher : PlayerWeaponModule
             }
             else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue >= 20 && player.energy >= 20f)
             {
+                //
+                sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;
+                sfxPlayer.PlayOneShot(GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().p_missle);
+
                 coolDownInterval = 0.5f;
                 LeanPool.Spawn(missileBullet, transform.position, Quaternion.Euler(player.transform.eulerAngles)).GetComponent<Missile>().Initialize(player.transform.up, 10f + player.instantSpeed);
                 coolDown = 0;

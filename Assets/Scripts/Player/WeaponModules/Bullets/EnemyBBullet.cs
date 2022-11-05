@@ -31,6 +31,9 @@ public class EnemyBBullet : Bullet
     {
         if (collision.gameObject.tag == "Player")
         {
+            AudioSource sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;
+            sfxPlayer.PlayOneShot(GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().p_hit);
+
             collision.GetComponent<Player>().life -= 25;
             collision.GetComponent<Player>().invincibleTime = 3f;
             Destroy(gameObject);

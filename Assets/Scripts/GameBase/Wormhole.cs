@@ -5,6 +5,11 @@ using Lean.Pool;
 using UniRx;
 public class Wormhole : MonoBehaviour
 {
+    //audio 
+    public AudioSource playerAudioSource;
+    public AudioClip wormholeSound;
+
+
     public SpaceRoom fromRoom, toRoom;
     public Wormhole toHole;
     public Vector2 fromPosition, toPosition;
@@ -15,6 +20,10 @@ public class Wormhole : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            //
+            playerAudioSource = GameObject.FindWithTag("Player").GetComponent<AudioSource>();
+            playerAudioSource.PlayOneShot(wormholeSound);
+
             collision.gameObject.transform.position = toRoom.roomCenter + toPosition;
             collision.gameObject.GetComponent<Player>().nowRoom = toRoom;
             collision.gameObject.GetComponent<Player>().trail.gameObject.SetActive(false);

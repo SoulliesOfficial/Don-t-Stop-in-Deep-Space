@@ -70,6 +70,7 @@ public class ImperialCorvette : Enemy
             pursueTocrushTime += Time.fixedDeltaTime;
             if (pursueTocrushTime >= pursueToCrushTimeInterval)
             {
+                this.playedSound = false;
                 state = "Crush";
                 pursueTocrushTime = 0f;
                 crushTime = crushTimeInterval;
@@ -92,8 +93,11 @@ public class ImperialCorvette : Enemy
             {
                 state = "Pursue";
             }
-
-            enemyAudioSource.PlayOneShot(e_dashSound);
+            if(this.playedSound == false){
+                enemyAudioSource.PlayOneShot(e_dashSound);
+                this.playedSound = true;
+            }
+            
 
             transform.Translate(Vector2.up * crushSpeed * Time.fixedDeltaTime);
             crushTime -= Time.fixedDeltaTime;
