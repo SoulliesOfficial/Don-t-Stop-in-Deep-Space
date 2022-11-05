@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
 
     public void Update()
     {
-        life.fillAmount = (GameManager.player.life / 100f);
+        life.fillAmount = (GameManager.player.life / 200f);
         energy.fillAmount = (GameManager.player.energy / 100f);
         disruption.fillAmount = (GameManager.subspaceDisruptionSystem.subspaceDisruptionTargetValue / 100f);
     }

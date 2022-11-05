@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     {
         isInMovingOrder = false;
         isShooting = false;
-        life = 100;
+        life = 200;
         energy = 100;
         energyRecover = 5f;
 
