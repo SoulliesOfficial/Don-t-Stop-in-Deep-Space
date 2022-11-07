@@ -8,6 +8,7 @@ public class Wormhole : MonoBehaviour
     //audio 
     public AudioSource playerAudioSource;
     public AudioClip wormholeSound;
+    public AudioClip wormholeGenerated;
 
 
     public SpaceRoom fromRoom, toRoom;
@@ -16,12 +17,17 @@ public class Wormhole : MonoBehaviour
 
     public GameObject barrier;
 
+    private void Awake() {
+        playerAudioSource = GameObject.FindWithTag("Player").GetComponent<AudioSource>();
+        
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             //
-            playerAudioSource = GameObject.FindWithTag("Player").GetComponent<AudioSource>();
+            
             playerAudioSource.PlayOneShot(wormholeSound);
 
             collision.gameObject.transform.position = toRoom.roomCenter + toPosition;
@@ -51,4 +57,9 @@ public class Wormhole : MonoBehaviour
         fromRoom.wormholes.Add(wormhole);
 
     }
+
+    public void LevelClear(){
+        playerAudioSource.PlayOneShot(wormholeGenerated);
+    }
+
 }

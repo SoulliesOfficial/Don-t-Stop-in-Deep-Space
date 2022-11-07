@@ -89478,7 +89478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p_hit: {fileID: 8300000, guid: 3d708118a34a7a64c9eac58113770b13, type: 3}
   p_shoot: {fileID: 8300000, guid: e2c137e468b20704883cd7328fc58b97, type: 3}
-  p_laser: {fileID: 8300000, guid: 5ee13d130b5980e4f8d28800b2cf5338, type: 3}
+  p_laser: {fileID: 8300000, guid: 7861673faee7b234fb0a347f0531664a, type: 3}
   p_missle: {fileID: 8300000, guid: 49435643d5e4cc34181e2a46379968e6, type: 3}
   bgmSmooth: {fileID: 8300000, guid: a79f0618574fb754891753a308edc1ad, type: 3}
   bgmFast: {fileID: 8300000, guid: f1c6ad26d954246448b5cdc13a12cb40, type: 3}
@@ -89497,7 +89497,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

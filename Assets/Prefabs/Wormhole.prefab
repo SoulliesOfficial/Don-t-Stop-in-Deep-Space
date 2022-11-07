@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAudioSource: {fileID: 0}
   wormholeSound: {fileID: 8300000, guid: 5253dd0eabb45ee4fafedff35432e158, type: 3}
+  wormholeGenerated: {fileID: 8300000, guid: 67750449ca4ac7749b76b40ef2589f25, type: 3}
   fromRoom: {fileID: 0}
   toRoom: {fileID: 0}
   toHole: {fileID: 0}
