@@ -8,16 +8,33 @@ public class UIManager : MonoBehaviour
 {
     public TMP_Text subspaceDisruptionValueText;
 
-    public Image life, energy, disruption, weaponImage;
+    public Image disruption, weaponImage;
 
     public List<Sprite> weaponIconList;
 
     public ShipUI shipUI;
 
+    public CanvasGroup loseUI;
+    public float loseUIOpacity;
+    public bool showLose;
+
     public void Update()
     {
-        life.fillAmount = (GameManager.player.life / 200f);
-        energy.fillAmount = (GameManager.player.energy / 100f);
         disruption.fillAmount = (GameManager.subspaceDisruptionSystem.subspaceDisruptionTargetValue / 100f);
+
+        if (showLose)
+        {
+            loseUIOpacity += 2 * Time.deltaTime;
+            loseUIOpacity = Mathf.Min(loseUIOpacity, 1);
+            loseUI.alpha = loseUIOpacity;
+        }
     }
+
+    public void LOSE()
+    {
+        GameManager.player.gameObject.SetActive(false);
+        showLose = true;
+        loseUI.gameObject.SetActive(true);
+    }
+
 }

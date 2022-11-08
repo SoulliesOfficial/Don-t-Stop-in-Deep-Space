@@ -13,7 +13,7 @@ public class EnemyBBullet : Bullet
     {
         this.direction = direction;
         this.speed = 10;
-        gameObject.GetComponent<Rigidbody2D>().velocity = (direction * GameManager.playerInputManager.player.instantSpeed) + (GameManager.playerInputManager.player.displacement.normalized * GameManager.playerInputManager.player.instantSpeed);
+        gameObject.GetComponent<Rigidbody2D>().velocity = (direction * speed);
         Observable.Timer(System.TimeSpan.FromSeconds(5)).First().Subscribe(_ => { LeanPool.Despawn(gameObject); }).AddTo(this);
     }
 
@@ -34,9 +34,12 @@ public class EnemyBBullet : Bullet
             AudioSource sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;
             sfxPlayer.PlayOneShot(GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().p_hit);
 
-            collision.GetComponent<Player>().life -= 25;
-            collision.GetComponent<Player>().invincibleTime = 3f;
-            Destroy(gameObject);
+            if (collision.GetComponent<Player>().invincibleTime < 0)
+            {
+                GameManager.subspaceDisruptionSystem.initialValue -= 2f;
+                collision.GetComponent<Player>().invincibleTime = 3f;
+            }
+            LeanPool.Despawn(gameObject);
         }
         else if (collision.gameObject.tag == "Obscatle")
         {

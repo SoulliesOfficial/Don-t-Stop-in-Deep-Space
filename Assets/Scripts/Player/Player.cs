@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
         if (invincibleTime < 0) {
             if (collision.gameObject.tag == "Enemy")
             {
-                life -= 25;
+                GameManager.subspaceDisruptionSystem.initialValue -= 2f;
                 invincibleTime = 3f;
             }
             

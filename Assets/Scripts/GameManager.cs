@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
         enemyDictionary.Add("ImperialCorvette", gameBasePrefabs.imperialCorvette);
         enemyDictionary.Add("ImperialDestroyer", gameBasePrefabs.imperialDestroyer);
         enemyDictionary.Add("BlackHole", gameBasePrefabs.blackHole);
-
+        enemyDictionary.Add("ImperialFortress", gameBasePrefabs.imperialFortress);
+        enemyDictionary.Add("EnemySpawnPoint", gameBasePrefabs.enemySpawnPoint);
     }
 
     // Update is called once per frame
@@ -48,6 +49,10 @@ public class GameBasePrefabs
 
     public GameObject imperialCorvette;
     public GameObject imperialDestroyer;
+    public GameObject imperialFortress;
+
+    public GameObject enemySpawnPoint;
+
     public GameObject blackHole;
 
 }

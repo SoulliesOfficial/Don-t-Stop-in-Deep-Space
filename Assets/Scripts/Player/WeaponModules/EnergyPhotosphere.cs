@@ -27,7 +27,7 @@ public class EnergyPhotosphere : PlayerWeaponModule
     {
         if (player.isShooting && coolDown >= coolDownInterval)
         {
-            if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20 && player.energy >= 2f)
+            if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20)
             {
                 //
                 sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;
@@ -38,7 +38,7 @@ public class EnergyPhotosphere : PlayerWeaponModule
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 1f;
                 player.energy -= 2f;
             }
-            else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue >= 20 && player.energy >= 6f)
+            else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue >= 20)
             {
                 //
                 sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;

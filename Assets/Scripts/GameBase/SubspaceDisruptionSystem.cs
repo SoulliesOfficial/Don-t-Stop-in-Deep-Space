@@ -7,21 +7,29 @@ using UnityEngine.Events;
 public class SubspaceDisruptionSystem : MonoBehaviour
 {
     public float subspaceDisruptionValue, subspaceDisruptionTargetValue;
+    public float initialValue;
     public SubspaceDisruptionValueParts subspaceDisruptionValueParts;
     void Start()
     {
+        initialValue = 20;
         subspaceDisruptionValueParts = new SubspaceDisruptionValueParts(0, 0, 0, 0);
+        subspaceDisruptionValue = 20;
     }
 
     void Update()
     {
         CalculateSubspaceDisruptionValue();
         subspaceDisruptionValueParts.Decay(2 * Time.deltaTime,2);
+
+        if(subspaceDisruptionValue <= 0)
+        {
+            GameManager.uiManager.LOSE();
+        }
     }
 
     public void CalculateSubspaceDisruptionValue()
     {
-        subspaceDisruptionTargetValue = subspaceDisruptionValueParts.CalculateTargetValue();
+        subspaceDisruptionTargetValue = initialValue + subspaceDisruptionValueParts.CalculateTargetValue();
         subspaceDisruptionValue = Mathf.Lerp(subspaceDisruptionValue, subspaceDisruptionTargetValue, 5 * Time.deltaTime);
         GameManager.uiManager.subspaceDisruptionValueText.color = new Color(1, 1 - (subspaceDisruptionValue / 50), 1 - (subspaceDisruptionValue / 50));
         GameManager.uiManager.subspaceDisruptionValueText.text = subspaceDisruptionValue.ToString("F1");

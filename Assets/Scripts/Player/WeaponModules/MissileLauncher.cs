@@ -27,7 +27,7 @@ public class MissileLauncher : PlayerWeaponModule
     {
         if (player.isShooting && coolDown >= coolDownInterval)
         {
-            if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20 && player.energy >= 20f)
+            if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20)
             {
                 //
                 sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;
@@ -39,7 +39,7 @@ public class MissileLauncher : PlayerWeaponModule
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 5f;
                 player.energy -= 20f;
             }
-            else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue >= 20 && player.energy >= 20f)
+            else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue >= 20)
             {
                 //
                 sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;

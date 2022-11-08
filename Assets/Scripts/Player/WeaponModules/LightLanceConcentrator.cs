@@ -29,7 +29,7 @@ public class LightLanceConcentrator : PlayerWeaponModule
         if (player.isShooting && coolDown >= coolDownInterval)
         {
             Vector2 direction = player.transform.up;
-            if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20 && player.energy >= 33f)
+            if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue <= 20)
             {
                 //
                 sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;
@@ -42,7 +42,7 @@ public class LightLanceConcentrator : PlayerWeaponModule
                 GameManager.subspaceDisruptionSystem.subspaceDisruptionValueParts.playerAttackIntensity += 50f;
                 player.energy -= 33f;
             }
-            else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue >= 20 && player.energy>=66f)
+            else if (GameManager.subspaceDisruptionSystem.subspaceDisruptionValue >= 20)
             {
                 //
                 sfxPlayer = GameObject.FindWithTag("PlayerAudio").GetComponent<AudioManager>().sfxPlayer;
