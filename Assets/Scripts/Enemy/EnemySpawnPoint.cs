@@ -35,7 +35,7 @@ public class EnemySpawnPoint : Enemy
 
         LeanPool.Spawn(enemyPool[index], transform.position, Quaternion.identity);
         spawnIntervalTime = 0;
-        spawnInterval = 2 + GameManager.subspaceDisruptionSystem.subspaceDisruptionTargetValue / 10f;
+        spawnInterval = 2 + GameManager.subspaceDisruptionSystem.subspaceDisruptionTargetValue / 5f;
         enemyCount--;
         
     }
