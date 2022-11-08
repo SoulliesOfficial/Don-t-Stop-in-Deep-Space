@@ -10,13 +10,13 @@ public class PlayerInputManager : MonoBehaviour
 
     public KeyCode shootKey, switchWeaponKey;
     public KeyCode moveKey;
-    public KeyCode moveAssistanceKey;
+    //public KeyCode moveAssistanceKey;
     public KeyCode useFunctionalModuleKey, switchFunctionMuduleKey;
 
     void Start()
     {
         moveKey = KeyCode.Mouse0;
-        moveAssistanceKey = KeyCode.Mouse1;
+        //moveAssistanceKey = KeyCode.Mouse1;
     }
 
     void Update()
@@ -32,10 +32,11 @@ public class PlayerInputManager : MonoBehaviour
             player.isInMovingOrder = false;
         }
 
-        if (Input.GetKey(moveAssistanceKey))
+        /*if (Input.GetKey(moveAssistanceKey))
         {
             player.nowUsingMovementModule.MoveAssistance();
         }
+        */
 
         if (Input.GetKeyDown(switchWeaponKey))
         {
