@@ -200,7 +200,7 @@
 								"y" : 30
 							},{
 								"x" : 0,
-								"y" : 200
+								"y" : 190
 							},{
 								"x" : 170,
 								"y" : 30
@@ -237,7 +237,7 @@
 								"y" : -30
 							},{
 								"x" : 0,
-								"y" : -200
+								"y" : -190
 							},{
 								"x" : -170,
 								"y" : -30
@@ -245,16 +245,72 @@
 						],
 						"borderShapeType" : 1,
 						"isClosed" : false
-					}
+					},
+{
+
+						"nodeList" : [
+							{
+								"x" : 80,
+								"y" : 0
+							},{
+								"x" : 0,
+								"y" : -80
+							},{
+								"x" : -80,
+								"y" : 0
+							},{
+								"x" : 0,
+								"y" : 80
+							}
+						],
+						"borderShapeType" : 1,
+						"isClosed" : true
+},
 				],
 				"enemies" : [
 					{
 						"enemyName" : "ImperialCorvette",
 						"position" : {
-							"x" : 20,
+							"x" : -90,
 							"y" : 20
 						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : -90,
+							"y" : -20
+						}
+					},
+{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : 90,
+							"y" : 20
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : 90,
+							"y" : -20
+						}
+					},
+{
+						"enemyName" : "ImperialCorvette",
+						"position" : {
+							"x" : 0,
+							"y" : -90
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : 0,
+							"y" : 90
+						}
 					}
+
 				],
 				"playerSpawnPosition" : {
 					"x" : -180,
@@ -262,7 +318,7 @@
 				},
 				"possibleWormholePositions" : [
 					{
-						"x" : 0,
+						"x" : 180,
 						"y" : 0
 					}
 				],
@@ -1064,27 +1120,41 @@
 						}
 					},
 {
-						"enemyName" : "ImperialDestroyer",
+						"enemyName" : "ImperialCorvette",
 						"position" : {
 							"x" : -60,
 							"y" : 120
 						}
 					},
 {
-						"enemyName" : "ImperialDestroyer",
+						"enemyName" : "ImperialCorvette",
 						"position" : {
 							"x" : -60,
 							"y" : -120
 						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : 60,
+							"y" : 120
+						}
+					},
+{
+						"enemyName" : "ImperialDestroyer",
+						"position" : {
+							"x" : 60,
+							"y" : 120
+						}
 					}
 				],
 "playerSpawnPosition" : {
-                        	"x" : -180,
+                        	"x" : -185,
                     		"y" : 0
                	 },
 "possibleWormholePositions" : [
                             	{
-                                   "x" : 0,
+                                   "x" : 190,
                                    "y" : 0
                            	 }
                 ],
@@ -1095,6 +1165,7 @@
 		]
 	}
 }
+
 
 
 
