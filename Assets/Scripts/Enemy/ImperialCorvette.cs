@@ -36,7 +36,7 @@ public class ImperialCorvette : Enemy
         idleSpeed = 0.1f;
         rotationSpeed = 1f;
         pursueSpeed = 8f;
-        crushSpeed = 20f;
+        crushSpeed = 30f;
         pursueToCrushTimeInterval = 8f;
         pursueTocrushTime = 0f;
         crushTimeInterval = 2f;
@@ -74,7 +74,7 @@ public class ImperialCorvette : Enemy
                 state = "Crush";
                 pursueTocrushTime = 0f;
                 crushTime = crushTimeInterval;
-                crushSpeed = crushTimeInterval * 15f;
+                crushSpeed = crushTimeInterval * 30f;
             }
 
             transform.up = Vector2.Lerp(transform.up,
@@ -101,7 +101,7 @@ public class ImperialCorvette : Enemy
 
             transform.Translate(Vector2.up * crushSpeed * Time.fixedDeltaTime);
             crushTime -= Time.fixedDeltaTime;
-            crushSpeed = crushTime * 15f;
+            crushSpeed = crushTime * 30f;
         }
 
 
