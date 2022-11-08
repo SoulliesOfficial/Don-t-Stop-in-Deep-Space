@@ -16,7 +16,7 @@ public class AccelerationEngine : PlayerMovementModule
 
     private void Start()
     {
-        pushForce = 600;
+        pushForce = 700;
         maxSpeed = 50;
         acceleartion = 5;
         player = GameManager.playerInputManager.player;
