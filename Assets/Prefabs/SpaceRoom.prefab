@@ -47,13 +47,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf297a0d3d9ed4f588c6534b226629af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomBorderCollider: []
   roomCenter: {x: 0, y: 0}
   maximumBorder: []
   roomBorders: []
+  enemieSaves: []
+  playerSpawnPosition: {x: 0, y: 0}
+  wormholePositions: []
+  wormholes: []
   enemies:
-  - enemyName: ImperialCorvette
-    position: {x: 10, y: 10}
+  - {fileID: 0}
+  roomBorderCollider: []
 --- !u!50 &272303946
 Rigidbody2D:
   serializedVersion: 4
@@ -73,7 +76,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!60 &272303945
 PolygonCollider2D:
