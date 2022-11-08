@@ -21,7 +21,7 @@ public class SubspaceDisruptionSystem : MonoBehaviour
         CalculateSubspaceDisruptionValue();
         subspaceDisruptionValueParts.Decay(2 * Time.deltaTime,2);
 
-        if(subspaceDisruptionValue <= 0)
+        if(subspaceDisruptionValue <= -10)
         {
             GameManager.uiManager.LOSE();
         }

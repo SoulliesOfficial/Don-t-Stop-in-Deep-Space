@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
                 foreach (Enemy e in room.enemies)
                 {
                     room.enemies.Remove(e);
-                    Destroy(e);
+                    Destroy(e.gameObject);
                 }
             }
 

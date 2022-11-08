@@ -95,7 +95,10 @@ public class SpaceRoom : MonoBehaviour
         {
             Enemy e = Enemy.GenerateEnemy(spaceRoom_Save.enemies[i].enemyName, sr, spaceRoom_Save.enemies[i].position);
             sr.enemieSaves.Add(spaceRoom_Save.enemies[i]);
-            sr.enemies.Add(e);
+            if (e.GetComponent<EnemySpawnPoint>() != null)
+            {
+                sr.enemies.Add(e);
+            }
         }
         return sr;
     }
