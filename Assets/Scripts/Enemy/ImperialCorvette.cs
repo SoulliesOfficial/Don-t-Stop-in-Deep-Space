@@ -35,7 +35,7 @@ public class ImperialCorvette : Enemy
         idleWanderTime = 10f;
         idleSpeed = 0.1f;
         rotationSpeed = 1f;
-        pursueSpeed = 8f;
+        pursueSpeed = 10f;
         crushSpeed = 30f;
         pursueToCrushTimeInterval = 8f;
         pursueTocrushTime = 0f;
