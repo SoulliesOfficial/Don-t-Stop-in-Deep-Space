@@ -9,6 +9,7 @@ public class ImperialCorvette : Enemy
     public Player player;
     public string state;
     public float rotationSpeed;
+    
 
     //Idle
     public float idleWanderRange;
@@ -41,6 +42,7 @@ public class ImperialCorvette : Enemy
         pursueTocrushTime = 0f;
         crushTimeInterval = 2f;
         crushTime = 0f;
+
     }
 
     // Update is called once per frame

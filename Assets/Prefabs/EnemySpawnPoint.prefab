@@ -44,9 +44,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67c7485a73e040b4b4426445ca16dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAudioSource: {fileID: 0}
+  e_deathSound: {fileID: 0}
+  e_hitSound: {fileID: 0}
+  e_shootSound: {fileID: 0}
+  e_dashSound: {fileID: 0}
+  playedSound: 1
+  enemyName: 
+  health: 0
+  spawnPosition: {x: 0, y: 0}
+  substancialArea: {fileID: 0}
+  hitArea: {fileID: 0}
+  room: {fileID: 0}
   enemyPool:
-  - {fileID: 3106885673725526045, guid: 5747db94191564e5a850d49059e26ff5, type: 3}
-  - {fileID: 3106885673725526045, guid: 4d2df3fabd1b5463f8319b1ebe318711, type: 3}
+  - ImperialCorvette
+  - ImperialDestroyer
   spawnInterval: 0
   spawnIntervalTime: 0
   enemyCount: 0
+  spawnOn: 0
+  player: {fileID: 0}

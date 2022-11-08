@@ -9,6 +9,7 @@ public class ImperialDestroyer : Enemy
     public Player player;
     public string state;
     public float rotationSpeed;
+    
 
     public const float coolDownInterval = 1.5f;
     public float coolDown = 0f;
@@ -33,6 +34,7 @@ public class ImperialDestroyer : Enemy
         idleSpeed = 0.1f;
         rotationSpeed = 1f;
         pursueSpeed = 10f;
+
     }
 
     void FixedUpdate()

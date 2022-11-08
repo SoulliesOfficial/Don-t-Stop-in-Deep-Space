@@ -5,27 +5,47 @@ using Lean.Pool;
 
 public class EnemySpawnPoint : Enemy
 {
-    public List<GameObject> enemyPool;
+    public List<string> enemyPool;
     public float spawnInterval;
     public float spawnIntervalTime;
     public int enemyCount;
+    public bool spawnOn;
+
+    public Player player;
 
     // Start is called before the first frame update
     void Start()
     {
         spawnInterval = 2;
         enemyCount = 10;
+        spawnOn = false;
+        player = GameManager.player;
     }
 
     // Update is called once per frame
     void Update()
     {
-        spawnIntervalTime += Time.deltaTime;
-
-        if (spawnIntervalTime >= spawnInterval && enemyCount > 0)
+        if (player.nowRoom == this.room && spawnOn == false)
         {
-            SpawnEnemy();
+            spawnOn = true;
+            
         }
+        else if(player.nowRoom != this.room && spawnOn == true)
+        {
+            spawnOn = false;
+        }
+
+
+        if (spawnOn)
+        {
+            spawnIntervalTime += Time.deltaTime;
+
+            if (spawnIntervalTime >= spawnInterval && enemyCount > 0)
+            {
+                SpawnEnemy();
+            }
+        }
+        
 
     }
 
@@ -33,7 +53,8 @@ public class EnemySpawnPoint : Enemy
     {
         int index = Random.Range(0, enemyPool.Count);
 
-        LeanPool.Spawn(enemyPool[index], transform.position, Quaternion.identity);
+        GenerateEnemy(enemyPool[index], this.room, transform.position);
+        //LeanPool.Spawn(enemyPool[index], transform.position, Quaternion.identity);
         spawnIntervalTime = 0;
         spawnInterval = 2 + GameManager.subspaceDisruptionSystem.subspaceDisruptionTargetValue / 5f;
         enemyCount--;

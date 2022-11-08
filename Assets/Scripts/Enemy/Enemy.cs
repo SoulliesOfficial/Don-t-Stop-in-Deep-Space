@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public AudioClip e_shootSound;
     public AudioClip e_dashSound;
     public bool playedSound = true;
+
     
     
 
