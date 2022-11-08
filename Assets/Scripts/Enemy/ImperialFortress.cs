@@ -27,7 +27,7 @@ public class ImperialFortress : Enemy
     void Start()
     {
         player = GameManager.player;
-        health = 500;
+        health = 100;
         rotationSpeed = 2f;
         powerRushTimeInterval = 20f;
         snipeTimeInterval = 5f;

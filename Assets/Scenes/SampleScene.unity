@@ -6354,8 +6354,8 @@ MonoBehaviour:
     wormhole: {fileID: 7955968918119633150, guid: 30093e1a5d66d4657b8ae34b78079dca, type: 3}
     imperialCorvette: {fileID: 3106885673725526045, guid: 5747db94191564e5a850d49059e26ff5, type: 3}
     imperialDestroyer: {fileID: 3106885673725526045, guid: 4d2df3fabd1b5463f8319b1ebe318711, type: 3}
-    imperialFortress: {fileID: 0}
-    enemySpawnPoint: {fileID: 0}
+    imperialFortress: {fileID: 460554248549306714, guid: fcba31bed1a914ffb918f2e9415dd440, type: 3}
+    enemySpawnPoint: {fileID: 2166510369240776272, guid: adfbc64a2462e48e0930c92013d62f4c, type: 3}
     blackHole: {fileID: 3106885673725526045, guid: b7e8613d0d553458a9aee86f36a26e7a, type: 3}
 --- !u!4 &84572526
 Transform:
@@ -129721,6 +129721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fortress
       objectReference: {fileID: 0}
+    - target: {fileID: 460554248549306715, guid: fcba31bed1a914ffb918f2e9415dd440, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1035219041}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcba31bed1a914ffb918f2e9415dd440, type: 3}
 --- !u!1001 &3106885675083345760
