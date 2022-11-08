@@ -7,6 +7,7 @@ public class Wormhole : MonoBehaviour
 {
     //audio 
     public AudioSource playerAudioSource;
+    public AudioSource bgmPlayer;
     public AudioClip wormholeSound;
     public AudioClip wormholeGenerated;
 
@@ -27,6 +28,11 @@ public class Wormhole : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             //
+            bgmPlayer = GameObject.FindGameObjectWithTag("PlayerAudio").GetComponent<AudioManager>().bgmPlayer;
+            bgmPlayer.Stop();
+            GameObject.FindGameObjectWithTag("PlayerAudio").GetComponent<AudioManager>().roomNum++;
+            GameObject.FindGameObjectWithTag("PlayerAudio").GetComponent<AudioManager>().CheckRoom();
+            bgmPlayer.Play();
             
             playerAudioSource.PlayOneShot(wormholeSound);
 

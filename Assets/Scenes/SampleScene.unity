@@ -89343,9 +89343,14 @@ MonoBehaviour:
   p_shoot: {fileID: 8300000, guid: e2c137e468b20704883cd7328fc58b97, type: 3}
   p_laser: {fileID: 8300000, guid: 7861673faee7b234fb0a347f0531664a, type: 3}
   p_missle: {fileID: 8300000, guid: 49435643d5e4cc34181e2a46379968e6, type: 3}
-  bgmSmooth: {fileID: 8300000, guid: a79f0618574fb754891753a308edc1ad, type: 3}
-  bgmFast: {fileID: 8300000, guid: f1c6ad26d954246448b5cdc13a12cb40, type: 3}
-  currentStage: 0
+  currentRoom: {fileID: 0}
+  spaceMap: {fileID: 84572527}
+  spaceRooms: []
+  bgm1: {fileID: 8300000, guid: a79f0618574fb754891753a308edc1ad, type: 3}
+  bgm2: {fileID: 8300000, guid: f1c6ad26d954246448b5cdc13a12cb40, type: 3}
+  bgm3: {fileID: 8300000, guid: 0723a521ffc975d40b842179a605a05c, type: 3}
+  bgm4: {fileID: 8300000, guid: a4ae8cba8040e8d4c8b7357103621139, type: 3}
+  roomNum: 0
   bgmPlayer: {fileID: 1509272902}
   sfxPlayer: {fileID: 1509272904}
 --- !u!82 &1509272904
@@ -89359,7 +89364,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
