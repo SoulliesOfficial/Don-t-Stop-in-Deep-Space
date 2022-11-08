@@ -32,7 +32,7 @@ public class ImperialDestroyer : Enemy
         idleWanderTime = 10f;
         idleSpeed = 0.1f;
         rotationSpeed = 1f;
-        pursueSpeed = 6f;
+        pursueSpeed = 10f;
     }
 
     void FixedUpdate()
