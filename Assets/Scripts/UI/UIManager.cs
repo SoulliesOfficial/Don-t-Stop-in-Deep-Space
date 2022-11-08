@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public ShipUI shipUI;
 
     public CanvasGroup loseUI;
+    public TMP_Text finText;
     public float loseUIOpacity;
     public bool showLose;
 
@@ -35,6 +36,15 @@ public class UIManager : MonoBehaviour
         GameManager.player.gameObject.SetActive(false);
         showLose = true;
         loseUI.gameObject.SetActive(true);
+    }
+
+    public void WIN()
+    {
+        GameManager.player.gameObject.SetActive(false);
+        finText.text = "You have Destroyed the Imperial Fortress... \nYou will embark on another journey in the Deep Space.";
+        showLose = true;
+        loseUI.gameObject.SetActive(true);
+        AudioListener.pause = true;
     }
 
 }

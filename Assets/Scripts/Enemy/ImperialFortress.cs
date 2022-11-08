@@ -27,7 +27,7 @@ public class ImperialFortress : Enemy
     void Start()
     {
         player = GameManager.player;
-        health = 100;
+        health = 200;
         rotationSpeed = 2f;
         powerRushTimeInterval = 20f;
         snipeTimeInterval = 5f;
@@ -127,7 +127,7 @@ public class ImperialFortress : Enemy
         {
             Observable.Timer(System.TimeSpan.FromSeconds(i * 2)).Subscribe(_ =>
             {
-                GameObject c = LeanPool.Spawn(GameManager.gameManager.gameBasePrefabs.imperialCorvette, generateEnemyTransform.transform.position, Quaternion.identity);
+                Enemy c = GenerateEnemy("ImperialCorvette", this.room, generateEnemyTransform.transform.position);
                 c.GetComponent<ImperialCorvette>().state = "Pursue";
             });
         }
@@ -156,4 +156,52 @@ public class ImperialFortress : Enemy
             -origin.x * Mathf.Sin(angle * Mathf.Deg2Rad) + origin.y * Mathf.Cos(angle * Mathf.Deg2Rad));
     }
 
+
+    public override void Hurt(float damage)
+    {
+        enemyAudioSource.PlayOneShot(e_hitSound);
+        health -= damage;
+
+        if (health <= 0)
+        {
+            //add death sound effect
+            GameObject playerAudio = GameObject.FindWithTag("Player");
+            playerAudio.GetComponent<AudioSource>().PlayOneShot(e_deathSound);
+
+
+            room.enemies.Remove(this);
+            room.enemies.RemoveAll(x => x == null);
+
+            bool close = true;
+            foreach (Enemy e in room.enemies)
+            {
+                if (e.GetComponent<Enemy>() != null && e.GetComponent<EnemySpawnPoint>() == null)
+                {
+                    close = false;
+                }
+            }
+
+            if (close)
+            {
+                foreach (Enemy e in room.enemies)
+                {
+                    room.enemies.Remove(e);
+                    Destroy(e);
+                }
+            }
+
+            if (room.enemies.Count == 0)
+            {
+                for(int i = 0; i < room.wormholes.Count; i++)
+                {
+                    room.wormholes[i].GetComponent<SpriteRenderer>().color = Color.white;
+                    room.wormholes[i].GetComponent<BoxCollider2D>().enabled = true;
+                }
+            }
+
+            GameManager.uiManager.WIN();
+
+            Destroy(gameObject);
+        }
+    }
 }
