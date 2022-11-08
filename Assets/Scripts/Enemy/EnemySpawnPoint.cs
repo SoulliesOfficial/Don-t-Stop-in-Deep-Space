@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Lean.Pool;
 
-public class EnemySpawnPoint : MonoBehaviour
+public class EnemySpawnPoint : Enemy
 {
     public List<GameObject> enemyPool;
     public float spawnInterval;
