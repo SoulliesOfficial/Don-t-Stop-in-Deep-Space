@@ -146,6 +146,13 @@
 							"x" : -80,
 							"y" : -80
 						}
+					},
+					{
+						"enemyName" : "EnemySpawnPoint",
+						"position" : {
+							"x" : 110,
+							"y" : 0
+						}
 					}
 				],
 				"playerSpawnPosition" : {
@@ -308,6 +315,13 @@
 						"position" : {
 							"x" : 0,
 							"y" : 90
+						}
+					},
+					{
+						"enemyName" : "EnemySpawnPoint",
+						"position" : {
+							"x" : 100,
+							"y" : 0
 						}
 					}
 
@@ -815,6 +829,20 @@
 							"x" : -268,
 							"y" : -148
 						}
+					},
+					{
+						"enemyName" : "EnemySpawnPoint",
+						"position" : {
+							"x" : 320,
+							"y" : -110
+						}
+					},
+					{
+						"enemyName" : "EnemySpawnPoint",
+						"position" : {
+							"x" : 120,
+							"y" : 25
+						}
 					}
 				],
 				"playerSpawnPosition" : {
@@ -1146,6 +1174,20 @@
 							"x" : 60,
 							"y" : 120
 						}
+					},
+					{
+						"enemyName" : "ImperialFortress",
+						"position" : {
+							"x" : 0,
+							"y" : 0
+						}
+					},
+					{
+						"enemyName" : "EnemySpawnPoint",
+						"position" : {
+							"x" : 10,
+							"y" : 0
+						}
 					}
 				],
 "playerSpawnPosition" : {
@@ -1165,6 +1207,7 @@
 		]
 	}
 }
+
 
 
 

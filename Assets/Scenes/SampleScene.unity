@@ -129785,6 +129785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fortress
       objectReference: {fileID: 0}
+    - target: {fileID: 460554248549306714, guid: fcba31bed1a914ffb918f2e9415dd440, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 460554248549306715, guid: fcba31bed1a914ffb918f2e9415dd440, type: 3}
       propertyPath: player
       value: 
