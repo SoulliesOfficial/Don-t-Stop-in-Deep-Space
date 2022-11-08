@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
 
 
             room.enemies.Remove(this);
+            room.enemies.RemoveAll(x => x == null);
 
             bool close = true;
             foreach (Enemy e in room.enemies)
