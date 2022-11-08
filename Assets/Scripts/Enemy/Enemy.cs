@@ -46,7 +46,25 @@ public class Enemy : MonoBehaviour
                     room.wormholes[i].GetComponent<BoxCollider2D>().enabled = true;
                 }
             }
-            
+
+            bool close = true;
+            foreach(Enemy e in room.enemies)
+            {
+                if (e.GetComponent<Enemy>()!=null && e.GetComponent<EnemySpawnPoint>() == null)
+                {
+                    close = false;
+                }
+            }
+
+            if (close)
+            {
+                foreach (Enemy e in room.enemies)
+                {
+                    room.enemies.Remove(e);
+                    Destroy(e);
+                }
+            }
+
             Destroy(gameObject);
         }
     }

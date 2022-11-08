@@ -54,10 +54,14 @@ public class EnemySpawnPoint : Enemy
         int index = Random.Range(0, enemyPool.Count);
 
         GenerateEnemy(enemyPool[index], this.room, transform.position);
-        //LeanPool.Spawn(enemyPool[index], transform.position, Quaternion.identity);
+
         spawnIntervalTime = 0;
         spawnInterval = 2 + GameManager.subspaceDisruptionSystem.subspaceDisruptionTargetValue / 5f;
         enemyCount--;
-        
+
+        if(enemyCount == 0)
+        {
+            LeanPool.Despawn(gameObject);
+        }
     }
 }

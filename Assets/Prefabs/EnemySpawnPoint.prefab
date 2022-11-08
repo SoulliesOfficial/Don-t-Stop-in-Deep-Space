@@ -50,7 +50,10 @@ MonoBehaviour:
   e_shootSound: {fileID: 0}
   e_dashSound: {fileID: 0}
   playedSound: 1
+<<<<<<< Updated upstream
   enemyName: 
+=======
+>>>>>>> Stashed changes
   health: 0
   spawnPosition: {x: 0, y: 0}
   substancialArea: {fileID: 0}
