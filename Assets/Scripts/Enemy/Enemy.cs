@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
         GameObject enemy = GameManager.gameManager.enemyDictionary.GetValueOrDefault(enemyName);
         if (enemy != null)
         {
-            Enemy e = LeanPool.Spawn(enemy, spaceRoom.roomCenter + position, Quaternion.identity).GetComponent<Enemy>();
+            Enemy e = Instantiate(enemy, spaceRoom.roomCenter + position, Quaternion.identity).GetComponent<Enemy>();
             e.spawnPosition = spaceRoom.roomCenter + position;
             e.room = spaceRoom;
             return e;

@@ -29,7 +29,7 @@ public class Missile : MonoBehaviour
         this.direction = direction;
         this.speed = speed;
         gameObject.GetComponent<Rigidbody2D>().velocity = (direction * GameManager.playerInputManager.player.instantSpeed) + (GameManager.playerInputManager.player.displacement.normalized * GameManager.playerInputManager.player.instantSpeed);
-        Observable.Timer(System.TimeSpan.FromSeconds(10)).First().Subscribe(_ => { LeanPool.Despawn(gameObject); }).AddTo(this);
+        Observable.Timer(System.TimeSpan.FromSeconds(10)).First().Subscribe(_ => { Destroy(gameObject); }).AddTo(this);
     }
 
     void FixedUpdate()
@@ -80,11 +80,11 @@ public class Missile : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             collision.GetComponent<Enemy>().Hurt(2);
-            LeanPool.Despawn(gameObject);
+            Destroy(gameObject);
         }
         else if (collision.gameObject.tag == "Obscatle")
         {
-            LeanPool.Despawn(gameObject);
+            Destroy(gameObject);
         }
     }
 }
