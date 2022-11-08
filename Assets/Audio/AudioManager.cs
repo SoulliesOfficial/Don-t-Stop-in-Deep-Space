@@ -25,6 +25,8 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        roomNum = 0;
+
         // audioPlayer = this.GetComponent<AudioSource>();
         spaceRooms = spaceMap.spaceRooms;
         currentRoom = this.GetComponentInParent<Player>().nowRoom;
