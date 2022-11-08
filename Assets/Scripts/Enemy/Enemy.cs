@@ -38,19 +38,11 @@ public class Enemy : MonoBehaviour
 
 
             room.enemies.Remove(this);
-            if(room.enemies.Count == 0)
-            {
-                for(int i = 0; i < room.wormholes.Count; i++)
-                {
-                    room.wormholes[i].GetComponent<SpriteRenderer>().color = Color.white;
-                    room.wormholes[i].GetComponent<BoxCollider2D>().enabled = true;
-                }
-            }
 
             bool close = true;
-            foreach(Enemy e in room.enemies)
+            foreach (Enemy e in room.enemies)
             {
-                if (e.GetComponent<Enemy>()!=null && e.GetComponent<EnemySpawnPoint>() == null)
+                if (e.GetComponent<Enemy>() != null && e.GetComponent<EnemySpawnPoint>() == null)
                 {
                     close = false;
                 }
@@ -64,6 +56,16 @@ public class Enemy : MonoBehaviour
                     Destroy(e);
                 }
             }
+
+            if (room.enemies.Count == 0)
+            {
+                for(int i = 0; i < room.wormholes.Count; i++)
+                {
+                    room.wormholes[i].GetComponent<SpriteRenderer>().color = Color.white;
+                    room.wormholes[i].GetComponent<BoxCollider2D>().enabled = true;
+                }
+            }
+
 
             Destroy(gameObject);
         }
