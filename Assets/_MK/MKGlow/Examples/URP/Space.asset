@@ -55,16 +55,16 @@ MonoBehaviour:
     m_Value: 0
   renderPriority:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   debugView:
     m_OverrideState: 0
     m_Value: 0
   quality:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   antiFlickerMode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   workflow:
     m_OverrideState: 1
     m_Value: 0
